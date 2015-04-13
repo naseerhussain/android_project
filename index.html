@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+        <title>Your New Application</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8"> 
+        <meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+
+    </head>
+
+    <body>
+
+        <script src="CocoonJSExtensions/CocoonJS.js"></script>
+
+        <script src="CocoonJSExtensions/CocoonJS_App.js"></script>
+
+        <script src="CocoonJSExtensions/CocoonJS_App_ForCocoonJS.js"></script>
+
+        
+<script>
+
+
+            CocoonJS.App.onLoadInTheWebViewSucceed.addEventListener(function(pageURL) {
+                // Show the webview. By default, the webview is hidden.
+
+                CocoonJS.App.showTheWebView();
+
+
+            });
+
+
+            
+	    CocoonJS.App.onLoadInTheWebViewFailed.addEventListener(function(pageURL) {
+   
+	             console.error("Could not load the HTML file in the webview");
+
+            });
+
+          
+
+	    CocoonJS.App.loadInTheWebView("webview_index.html");
+
+
+        </script>
+
+    </body>
+
+</html>
