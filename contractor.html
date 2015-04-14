@@ -19,7 +19,7 @@
 
 
 
-<title>New App</title>
+<title>Contractor</title>
 
 
 
@@ -126,15 +126,24 @@ p{
 
 <script>
  $(document).ready(function(){
+	console.log("document load");
 
- 	$("#contractor").click(function(){
-		console.log("contractor");
-		CocoonJS.App.forwardAsync("redirect('contractor',0);");
+ 	$("#materials").click(function(){
+		console.log("materials");
+		CocoonJS.App.forwardAsync("contractorRedirect('materials',0);");
  	});
 
-	$("#siteEngineer").click(function(){
+	$("#workProgress").click(function(){
+		console.log("work progress");
+		CocoonJS.App.forwardAsync("contractorRedirect('workProgress',0);");
+	});
+	$("#labours").click(function(){
+		console.log("labours");
+		CocoonJS.App.forwardAsync("contractorRedirect('labours',0);");
+	});
+	$("#siteEng").click(function(){
 		console.log("site engineer");
-		CocoonJS.App.forwardAsync("redirect('siteEngineer',0);");
+		CocoonJS.App.forwardAsync("contractorRedirect('siteEngineer',0);")
 	});
  });
 </script>
@@ -142,14 +151,15 @@ p{
 	<div class="container">
 		<div class="row">
         		<div class="col-sm-6 col-md-4 col-md-offset-4">
-				<h1 class="text-center login-title">Sign in</h1>
+				<h1 class="text-center login-title">Welcome Contractor</h1>
 				<div class="account-wall">
-					<form class="form-signin">
-						<button id="contractor" class="btn btn-lg btn-primary btn-block">Contractors</button>
-						<button id="siteEngineer" class="btn btn-lg btn-primary btn-block">Site Engineers</button>
-						
-					</form>
-				</div>
+                                        <form class="form-signin">
+                                                <button id="materials" class="btn btn-lg btn-primary btn-block">Materials</button>
+                                                <button id="workProgress" class="btn btn-lg btn-primary btn-block">Work Progress</button>
+						<button id="labours" class="btn btn-lg btn-primary btn-block">Labours</button>
+						<button id="siteEng" class="btn btn-lg btn-primary btn-block">Site Engineer</button>
+                                        </form>
+                                </div>
 			</div>
 		</div>
 	</div>

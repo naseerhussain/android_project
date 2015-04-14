@@ -30,17 +30,46 @@
 
             });
 
-
-            
 	    CocoonJS.App.onLoadInTheWebViewFailed.addEventListener(function(pageURL) {
    
 	             console.error("Could not load the HTML file in the webview");
 
             });
 
-          
-
 	    CocoonJS.App.loadInTheWebView("webview_index.html");
+
+	    redirect = function(toPage){
+		console.log("index.html file = " + toPage);
+		if(toPage == "contractor"){
+			//CocoonJS.App.load("contractor.html");
+			CocoonJS.App.loadInTheWebView("contractor.html");
+		}else{
+			//CocoonJS.App.load("siteengineer.html");
+			CocoonJS.App.loadInTheWebView("siteengineer.html");
+		}
+		//CocoonJS.App.hideTheWebView();
+	    }
+
+	    contractorRedirect = function(toPage){
+		console.log("index.html file = "+toPage);
+		if(toPage == "materials"){
+			console.log("materials");
+			CocoonJS.App.load("contr_materials.html");
+
+		}else if(toPage == "workProgress"){
+			console.log("work progress");
+			CocoonJS.App.load("contr_workprogress.html");
+
+		}else if(toPage == "labours"){
+			console.log("labours");
+			CocoonJS.App.load("contr_labours.html");
+
+		}else{
+			console.log("site engineer");
+			CocoonJS.App.load("contr_siteengr.html");
+		}
+		CocoonJS.App.hideTheWebView();
+	    }
 
 
         </script>
