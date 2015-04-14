@@ -42,6 +42,9 @@
 
 }
 
+@media handheld and (min-width: 20em) and (orientation: potrait){
+}
+
 
 body {
 	
@@ -124,23 +127,13 @@ p{
 <script>
  $(document).ready(function(){
 	console.log("document load");
- 	$("#check").click(function(){
-		if($("#name").val()=="user"){
-			console.log("1st if");
-			if($("#pwd").val()=="test"){
-				console.log("2nd if");
-				$("p").text("welcome user");
-			}
-			else{
-				console.log("2nd else");
-				$("p").text("Wrong Password");
-			}
-		}else{
-			console.log("1st else");
-			$("p").text("Wrong User Name");
-		}
-		
+ 	$("#contractor").click(function(){
+		console.log("contractor");
  	});
+
+	$("#siteEngineer").click(function(){
+		console.log("site engineer");
+	});
  });
 </script>
 <body>
@@ -150,10 +143,9 @@ p{
 				<h1 class="text-center login-title">Sign in</h1>
 				<div class="account-wall">
 					<form class="form-signin">
-						<p id="error"></p><br/>
-						<input type="text" id="name" placeholder="User Name" class="form-control" required autofocus/><br/><br/>
-						<input type="password" id="pwd" placeholder="Password" class="form-control" required/><br/><br/>
-						<button id="check" class="btn btn-lg btn-primary btn-block">Enter</button>
+						<button id="contractor" class="btn btn-lg btn-primary btn-block">Contractors</button>
+						<button id="siteEngineer" class="btn btn-lg btn-primary btn-block">Site Engineers</button>
+						
 					</form>
 				</div>
 			</div>
