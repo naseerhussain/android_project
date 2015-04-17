@@ -137,12 +137,8 @@ p{
 		CocoonJS.App.forwardAsync("contrLogin('signUp',0);");
 	});
 	
-	$("#contr_userId").keypress(function(e){
-		console.log("key pressed"+e.which);
-	});
-	
-	$("#contr_userId").keyup(function(e){
-		console.log("key presses"+e.which);
+	$("#mainMenu").click(function(){
+		CocoonJS.App.forwardAsync("mainMenu(0);");
 	});
 	
 
@@ -162,10 +158,10 @@ p{
 						
 					</form>
 				</div>
+				<button id="mainMenu" class="btn btn-lg btn-info btn-block">Main Menu</button>
 			</div>
 		</div>
 	</div>
-	<input type="text" placeholder="test it">
 
 </body>
 </html>
