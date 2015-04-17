@@ -25,12 +25,6 @@
 
 
 <style type="text/css" media="all">
-* { 
-	-webkit-user-select:none; 
-	-webkit-tap-highlight-color:rgba(255, 255, 255, 0); 
-	-ms-touch-action:none;
-} 
-
 
 @font-face{
 
@@ -40,9 +34,6 @@
   
     src:url('css/SourceSansPro-Regular.ttf');
 
-}
-
-@media handheld and (min-width: 20em) and (orientation: potrait){
 }
 
 
@@ -117,10 +108,9 @@ body {
     display: block;
 }
 
-p{
-	color:red;
+label {
+ color:black;
 }
-
 </style>
 
 
@@ -146,7 +136,12 @@ p{
 				<h1 class="text-center login-title">Work Progress</h1>
 				<div class="account-wall">
 					<form class="form-signin">
-						
+						<button style="color:black">New Task</button><br><br><br>
+						<label>Task in Progress</label><br>
+						<label>Task </label><br><textarea align="top" class="form-control"></textarea><br>
+						<label>Days left</label><br><input align="middle" type="text" class="form-control"><br>
+						<label>Todays work</label><br><input type="text" class="form-control"><br>
+						<label>Work done</label><br><input type="text" class="form-control"><br> 		
 					</form>
 				</div>
 			</div>
