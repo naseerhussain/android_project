@@ -6,13 +6,6 @@
 
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 
-	<!--<link href="css/jquery.mobile.-1.4.5.min.css" rel="stylesheet">-->
-
-        <script type="text/javascript" charset="utf-8" src="lib/jquery.min.js"></script>
-
-	<!--<script type="text/javascript" src="lib/jquery.mobile-1.4.5.min.js"></script>-->
-
-	<script type="text/javascript" src="lib/bootstrap.min.js"></script>
 
         <script src="CocoonJSExtensions/CocoonJS.js"></script>
 
@@ -20,7 +13,9 @@
 
         <script src="CocoonJSExtensions/CocoonJS_App_ForWebView.js"></script>
 
+        <script type="text/javascript" charset="utf-8" src="lib/jquery.min.js"></script>
 
+	<script type="text/javascript" src="lib/bootstrap.min.js"></script>
 
 
 
@@ -30,6 +25,12 @@
 
 
 <style type="text/css" media="all">
+* { 
+	-webkit-user-select:none; 
+	-webkit-tap-highlight-color:rgba(255, 255, 255, 0); 
+	-ms-touch-action:none;
+} 
+
 
 @font-face{
 
@@ -126,8 +127,16 @@ p{
 <script>
  $(document).ready(function(){
 
-	$("#save_contr").click(function(){
-		CocoonJS.App.forwardAsync("contrLogin('login',0);");
+ 	$("#siteEngr_signIn").click(function(){
+		if($("#siteEngr_userId").val() == "siteengineer"){
+			if($("#siteEngr_pwd").val() == "test"){
+				CocoonJS.App.forwardAsync("siteEngrLogin('login',0);");
+			}
+		}
+ 	});
+	
+	$("#siteEngr_signUp").click(function(){
+		CocoonJS.App.forwardAsync("siteEngrLogin('signUp',0);");
 	});
 	
 
@@ -137,15 +146,14 @@ p{
 	<div class="container">
 		<div class="row">
         		<div class="col-sm-6 col-md-4 col-md-offset-4">
-				<h1 class="text-center login-title">Contractor Sign Up</h1>
+				<h1 class="text-center login-title">Site Engineer Login</h1>
 				<div class="account-wall">
 					<form class="form-signin">
-						<input type="text" placeholder="Name" id="contr_name" class="form-control"></input><br/>
-						<input type="text" placeholder="User Id" id="contr_userId" class="form-control"></input><br/>
-						<input type="password" placeholder="Password" id="contr_pwd" class="form-control"></input><br/>
-						<input type="password" placeholder="Confirm Password" id="contr_confpwd" class="form-control"></input><br/>
-						<button id="save_contr" class="btn btn-lg btn-primary">Confirm</button>
-						<button id="contr_cancel" class="btn btn-lg pull-right" style="color:black">Cancel</button>
+						<input type="text" placeholder="User Id" id="siteEngr_userId" class="form-control"></input><br/>
+						<input type="password" placeholder="Password" id="siteEngr_pwd" class="form-control"></input><br/>
+						<button id="siteEngr_signIn" class="btn btn-lg btn-primary btn-block">Sign In</button><br/>
+						<span style="color:black">Not having Accout ? <a id="siteEngr_signUp"> Sign Up</a>
+						
 					</form>
 				</div>
 			</div>

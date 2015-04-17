@@ -6,16 +6,19 @@
 
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 
+	<!--<link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet">-->
+
+        <script type="text/javascript" charset="utf-8" src="lib/jquery.min.js"></script>
+	
+	<!--<script type="text/javascript" src="lib/jquery.mobile-1.4.5.min.js"></script>-->
+
+	<script type="text/javascript" src="lib/bootstrap.min.js"></script>
 
         <script src="CocoonJSExtensions/CocoonJS.js"></script>
 
         <script src="CocoonJSExtensions/CocoonJS_App.js"></script>
 
         <script src="CocoonJSExtensions/CocoonJS_App_ForWebView.js"></script>
-
-        <script type="text/javascript" charset="utf-8" src="lib/jquery.min.js"></script>
-
-	<script type="text/javascript" src="lib/bootstrap.min.js"></script>
 
 
 
@@ -25,12 +28,6 @@
 
 
 <style type="text/css" media="all">
-* { 
-	-webkit-user-select:none; 
-	-webkit-tap-highlight-color:rgba(255, 255, 255, 0); 
-	-ms-touch-action:none;
-} 
-
 
 @font-face{
 
@@ -125,6 +122,7 @@ p{
 
 
 <script>
+
  $(document).ready(function(){
 
  	$("#contr_signIn").click(function(){
@@ -139,6 +137,14 @@ p{
 		CocoonJS.App.forwardAsync("contrLogin('signUp',0);");
 	});
 	
+	$("#contr_userId").keypress(function(e){
+		console.log("key pressed"+e.which);
+	});
+	
+	$("#contr_userId").keyup(function(e){
+		console.log("key presses"+e.which);
+	});
+	
 
  });
 </script>
@@ -149,9 +155,9 @@ p{
 				<h1 class="text-center login-title">Contractor Login</h1>
 				<div class="account-wall">
 					<form class="form-signin">
-						<input type="text" placeholder="User Id" id="contr_userId" class="form-control"></input><br/>
-						<input type="password" placeholder="Password" id="contr_pwd" class="form-control"></input><br/>
-						<button id="contr_signIn" class="btn btn-lg btn-primary btn-block">Sign In</button><br/>
+						<input type="text" placeholder="User Id" id="contr_userId" class="form-control"><br/>
+						<input type="password" placeholder="Password" id="contr_pwd" class="form-control"><br/>
+						<button id="contr_signIn" class="btn btn-lg btn-primary btn-block" >Sign In</button><br/>
 						<span style="color:black">Not having Accout ? <a id="contr_signUp"> Sign Up</a>
 						
 					</form>
@@ -159,5 +165,7 @@ p{
 			</div>
 		</div>
 	</div>
+	<input type="text" placeholder="test it">
+
 </body>
 </html>
