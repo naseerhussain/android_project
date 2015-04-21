@@ -130,7 +130,10 @@ p{
 	$("#save_contr").click(function(){
 		CocoonJS.App.forwardAsync("contrLogin('login',0);");
 	});
-	
+
+	$("#siteEngr_signup_back").click(function(){
+	    CocoonJS.App.forwardAsync("Signupback(0);");
+	});
 
  });
 </script>
@@ -149,7 +152,8 @@ p{
 						<button id="save_contr" class="btn btn-lg btn-primary">Confirm</button>
 						<button id="contr_cancel" class="btn btn-lg pull-right" style="color:black">Cancel</button>
 					</form>
-				</div>
+				    </div>
+				    <button id="siteEngr_signup_back" class="btn btn-lg btn-info btn-block">Back</button>
 			</div>
 		</div>
 	</div>

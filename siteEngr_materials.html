@@ -121,6 +121,7 @@ p{
 	color:red;
 }
 
+
 </style>
 
 
@@ -137,8 +138,14 @@ p{
 		console.log("site engineer");
 		CocoonJS.App.forwardAsync("redirect('siteEngineer',0);");
 	});
- });
-</script>
+	
+	$("#siteEngr_material_back").click(function(){
+	    CocoonJS.App.forwardAsync("welcomeSiteEngr(0);");
+	});
+	});
+	
+
+ </script>
 <body>
 	<div class="container">
 		<div class="row">
@@ -157,16 +164,19 @@ p{
 							</div> 
 							<table border="1" bordercolor="black" align="center" cellSpacing="5" cellPadding="2">
 							    <tr>
+								
 								<td><img src="images/bag_cement.png" class="img-responsive img-circle" width    ="auto" height="auto"></td>
 								<td><img src="images/bricks.png" class="img-responsive img-circle" width="au    to" height="auto"></td>
 							    </tr>
 		                                            <tr>
                                                                 <td><img src="images/rods.png" class="img-responsive img-circle" width="auto    " height="auto"></td>
-	                                                        <td><img src="images/sand.png" class="img-responsive img-circle" width="auto    " height="auto%"></td>
+								<td><img src="images/sand.png" class="img-responsive img-circle" width="auto    " height="auto%"></td>                                 
+							    
 	                                                    </tr>
 							</table>
 				    	</form>
-				</div>
+				    </div>
+				    <button id="siteEngr_material_back" class="btn btn-lg btn-info btn-block">Back</button>
 			</div>
 		</div>
 	</div>

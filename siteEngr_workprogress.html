@@ -137,6 +137,11 @@ p{
 		console.log("site engineer");
 		CocoonJS.App.forwardAsync("redirect('siteEngineer',0);");
 	});
+		
+    	$("#siteEngr_work_back").click(function(){
+		 CocoonJS.App.forwardAsync("welcomeSiteEngr(0);");
+	 });
+
  });
 </script>
 <body>
@@ -171,6 +176,7 @@ p{
 
 					</form>
 				</div>
+				<button id="siteEngr_work_back" class="btn btn-lg btn-info btn-block">Back</button>
 			</div>
 		</div>
 	</div>

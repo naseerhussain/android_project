@@ -145,7 +145,12 @@ height:15px;
 	$("#siteEngineer").click(function(){
 		console.log("site engineer");
 		CocoonJS.App.forwardAsync("redirect('siteEngineer',0);");
-	});
+        });
+       
+	$("#siteEngr_labour_back").click(function(){
+	        CocoonJS.App.forwardAsync("welcomeSiteEngr(0);");
+	 });
+
  });
 </script>
 <body>
@@ -165,7 +170,8 @@ height:15px;
 						<label>Total Amount</label><input type="text" id="siteEngr_labours_totalPaid" class="form-control"><br>
 						<button id="siteEngr_labours_pay" class="btn btn-primary btn-lg active pull-right">Pay</button> <button id="contr_labours_cancel" class="btn btn-default btn-lg active pull-left">Cancel</button><br>
 					</form>
-				</div>
+				    </div>
+				    <button id="siteEngr_labour_back" class="btn btn-lg btn-info btn-block">Back </button>
 			</div>
 		</div>
 	</div>
