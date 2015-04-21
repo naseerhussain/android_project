@@ -120,7 +120,16 @@ body {
 p{
 	color:red;
 }
-
+label{
+color:black;
+}
+h4{
+color:black;
+}
+input[type="checkbox"]{
+width:40px;
+height:15px;
+}
 </style>
 
 
@@ -136,7 +145,12 @@ p{
 	$("#siteEngineer").click(function(){
 		console.log("site engineer");
 		CocoonJS.App.forwardAsync("redirect('siteEngineer',0);");
-	});
+        });
+       
+	$("#siteEngr_labour_back").click(function(){
+	        CocoonJS.App.forwardAsync("welcomeSiteEngr(0);");
+	 });
+
  });
 </script>
 <body>
@@ -146,9 +160,18 @@ p{
 				<h1 class="text-center login-title">Labours</h1>
 				<div class="account-wall">
 					<form class="form-signin">
-						
+						<label> Date : </label><input type="datetime" id="contr_labours_date" class="form-control"><br>
+						<label> Name1 : </label><input type="checkbox" id="lab1"><input type="text" id="pay1" class="form-control" placeholder="Amount paid"><br>
+						<label> Name2 : </label><input type="checkbox" id="lab2"><input type="text" id="pay2" class="form-control" placeholder="Amount paid"><br>
+						<!--<label> Name3 : </label><input type="checkbox" id="lab3"><input type="text" id="pay3" class="form-control"><br>
+						<label> Name4 : </label><input type="checkbox" id="lab4"><input type="text" id="pay4" class="form-control"><br>
+						<label> Name5 : </label><input type="checkbox" id="lab5"><input type="text" id="pay5" class="form-control"><br>-->
+						<label>Labours Present</label><label id="siteEngr_labours_present" class="form-control"><br></label>
+						<label>Total Amount</label><input type="text" id="siteEngr_labours_totalPaid" class="form-control"><br>
+						<button id="siteEngr_labours_pay" class="btn btn-primary btn-lg active pull-right">Pay</button> <button id="contr_labours_cancel" class="btn btn-default btn-lg active pull-left">Cancel</button><br>
 					</form>
-				</div>
+				    </div>
+				    <button id="siteEngr_labour_back" class="btn btn-lg btn-info btn-block">Back </button>
 			</div>
 		</div>
 	</div>
