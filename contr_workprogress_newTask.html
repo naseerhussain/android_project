@@ -116,11 +116,8 @@ label {
 
 <script>
  $(document).ready(function(){
-	$("#contr_work_progress_back").click(function(){
-		CocoonJS.App.forwardAsync("contrWorkProgressBack(0);");
-	});
-	$("#contr_workProgress_newTask").click(function(){
-		CocoonJS.App.forwardAsync("contrWorkProgressNewTask(0);");
+	$("#contr_work_progress_newTask_back").click(function(){
+		CocoonJS.App.forwardAsync("contrWorkProgressNewTaskBack(0);");
 	});
  });
 </script>
@@ -128,18 +125,24 @@ label {
 	<div class="container">
 		<div class="row">
         		<div class="col-sm-6 col-md-4 col-md-offset-4">
-				<h1 class="text-center login-title">Work Progress</h1>
+				<h1 class="text-center login-title">New Task</h1>
 				<div class="account-wall">
 					<form class="form-signin">
-						<button style="color:black" id="contr_workProgress_newTask">New Task</button><br><br><br>
-						<label>Task in Progress</label><br>
-						<label>Task </label><br><textarea align="top" class="form-control" id="contr_wProgress_tDesc"></textarea><br>
-						<label>Days left</label><br><input align="middle" type="text" class="form-control" id="contr_wProgress_daysLeft"><br>
-						<label>Todays work</label><br><input type="text" class="form-control" id="contr_wProgress_todayWork"><br>
-						<label>Work done</label><br><input type="text" class="form-control" id="contr_wProgress_workDone"><br> 		
+						<label>Task </label><br><textarea align="top" class="form-control" id="contr_workProgress_newTask_task"></textarea><br>
+						<label>Time Slot</label><br><input align="middle" type="text" class="form-control" id="contr_siteEngr_newTask_timeSlot">Days<br>
+						<div class="dropdown">
+							<label>Assign to</label><button class="btn btn-default dropdown-toggle" type="button" id="contr_siteEngr_newTask_selectEngr" data-toggle="dropdown" aria-expanded="true">
+							Select
+							<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" role="menu" aria-labelledby="contr_siteEngr_newTask_selectEngr">
+								<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Name1</a></li>
+								<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Name2</a></li>
+							</ul>
+						</div>
 					</form>
 				</div>
-				<button id="contr_work_progress_back" class="btn btn-info btn-lg btn-block"> Back </button>
+				<button id="contr_work_progress_newTask_back" class="btn btn-info btn-lg btn-block"> Back </button>
 			</div>
 		</div>
 	</div>

@@ -25,6 +25,12 @@
 
 
 <style type="text/css" media="all">
+* { 
+	-webkit-user-select:none; 
+	-webkit-tap-highlight-color:rgba(255, 255, 255, 0); 
+	-ms-touch-action:none;
+} 
+
 
 @font-face{
 
@@ -34,6 +40,9 @@
   
     src:url('css/SourceSansPro-Regular.ttf');
 
+}
+
+@media handheld and (min-width: 20em) and (orientation: potrait){
 }
 
 
@@ -108,38 +117,62 @@ body {
     display: block;
 }
 
-label {
- color:black;
+p{
+	color:red;
 }
+
 </style>
 
 
 <script>
  $(document).ready(function(){
-	$("#contr_work_progress_back").click(function(){
-		CocoonJS.App.forwardAsync("contrWorkProgressBack(0);");
+	console.log("document load");
+	var toPage;
+ 	$("#contractor").click(function(){
+		console.log("contractor");
+		CocoonJS.App.forwardAsync("redirect('contractor',0);");
+ 	});
+
+	$("#siteEngineer").click(function(){
+		console.log("site engineer");
+		CocoonJS.App.forwardAsync("redirect('siteEngineer',0);");
 	});
-	$("#contr_workProgress_newTask").click(function(){
-		CocoonJS.App.forwardAsync("contrWorkProgressNewTask(0);");
+
+	$("#siteEngr_mData_back").click(function(){
+		CocoonJS.App.forwardAsync("siteEngrMaterial(0);");
 	});
+
  });
 </script>
 <body>
 	<div class="container">
 		<div class="row">
         		<div class="col-sm-6 col-md-4 col-md-offset-4">
-				<h1 class="text-center login-title">Work Progress</h1>
+				<h1 class="text-center login-title">Materials</h1>
 				<div class="account-wall">
-					<form class="form-signin">
-						<button style="color:black" id="contr_workProgress_newTask">New Task</button><br><br><br>
-						<label>Task in Progress</label><br>
-						<label>Task </label><br><textarea align="top" class="form-control" id="contr_wProgress_tDesc"></textarea><br>
-						<label>Days left</label><br><input align="middle" type="text" class="form-control" id="contr_wProgress_daysLeft"><br>
-						<label>Todays work</label><br><input type="text" class="form-control" id="contr_wProgress_todayWork"><br>
-						<label>Work done</label><br><input type="text" class="form-control" id="contr_wProgress_workDone"><br> 		
-					</form>
+				    <form class="form-signin">
+					    <span style="color:black">Qauntity:</span><br>
+					    <input type="text" id="siteEngr_mData_qty" class="form-control"</input><br>
+					    <div class="dropdown">   
+					    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+						Kg/Ltr/Load  
+						<span class="caret"></span>
+					    </button>
+					      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+						 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Kg</a>    </li>
+						 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">liter</a>  </li>
+						 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">load</a>   </li>
+					     </ul>
+					 </div>
+					     <br>
+					     <span style="color:black">Amount</span>
+					     <input type="text" id="siteEngr_mData_amt" class="form-control"></input><br>
+					   <button id="siteEngr_mData_save" class="btn btn-lg btn-primary pull-right">Save</button>
+					   <button id="siteEngr_mData_cancel" class="btn btn-lg btn-info pull-left">Cancel</button><br/>
+
+				    </form>
 				</div>
-				<button id="contr_work_progress_back" class="btn btn-info btn-lg btn-block"> Back </button>
+				<button id="siteEngr_mData_back" class="btn btn-lg btn-info btn-block">Back</button>
 			</div>
 		</div>
 	</div>

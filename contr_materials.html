@@ -120,21 +120,22 @@ p{
 	color:red;
 }
 
+
+  table, tr, td{
+	    border: 1px solid black;
+	     border-collapse: collapse;
+	    }
+	    tr, td {
+		    padding: 15px;
+		}
+	
 </style>
 
 
 <script>
  $(document).ready(function(){
-	console.log("document load");
-	var toPage;
- 	$("#contractor").click(function(){
-		console.log("contractor");
-		CocoonJS.App.forwardAsync("redirect('contractor',0);");
- 	});
-
-	$("#siteEngineer").click(function(){
-		console.log("site engineer");
-		CocoonJS.App.forwardAsync("redirect('siteEngineer',0);");
+	$("#contr_materials_back").click(function(){
+		CocoonJS.App.forwardAsync("contrMaterialsBack(0);");
 	});
  });
 </script>
@@ -155,7 +156,7 @@ p{
     								<li role="presentation"><a role="menuitem" tabindex="-1" href="#">All</a></li>
   							</ul>
 						</div><br/>
-						<table border="1" bordercolor="black" align="center" cellSpacing="5" cellPadding="2">
+				    	<table border="1" bordercolor="black" align="center" cellSpacing="5" cellPadding="2">
 							<tr>
 								<td><img src="images/bag_cement.png" class="img-responsive img-circle" width="auto" height="auto"></td>
 								<td><img src="images/bricks.png" class="img-responsive img-circle" width="auto" height="auto"></td>
@@ -166,7 +167,8 @@ p{
 							</tr>
 						</table>
 					</form>
-				</div>
+				 </div>
+				<button id="contr_materials_back" class="btn btn-info btn-lg btn-block">Back</button>
 			</div>
 		</div>
 	</div>
