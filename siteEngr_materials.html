@@ -17,6 +17,15 @@
 
 	<script type="text/javascript" src="lib/bootstrap.min.js"></script>
 
+	<link rel="stylesheet" href="css/demo-styles.css" />
+
+	<script src="lib/modernizr-1.5.min.js"></script>
+
+	<script src="lib/jquery-1.8.2.min.js"></script>
+
+	 <script src="lib/scripts.js"></script>
+
+
 
 
 <title>New App</title>
@@ -126,9 +135,8 @@ p{
 
 
 <script>
- $(document).ready(function(){
-	console.log("document load");
-	var toPage;
+    $(document).ready(function(){
+
  	$("#contractor").click(function(){
 		console.log("contractor");
 		CocoonJS.App.forwardAsync("redirect('contractor',0);");
@@ -142,7 +150,27 @@ p{
 	$("#siteEngr_material_back").click(function(){
 	    CocoonJS.App.forwardAsync("welcomeSiteEngr(0);");
 	});
+
+	$("#tile_cement").click(function(){
+	    CocoonJS.App.forwardAsync("siteEngrMdata('cement',0);");
 	});
+
+	$("#tile-bricks").click(function(){
+	    console.log("******8");
+	    CocoonJS.App.forwardAsync("siteEngrMdata('bricks',0);");
+	});
+
+	$("#tile-rods").click(function(){
+		console.log("&&&&&&& rods");
+		CocoonJS.App.forwardAsync("siteEngrMdata('rods',0);");
+	});
+
+	$("#tile-sand").click(function(){
+	    console.log("^^^^^^ sand");
+	    CocoonJS.App.forwardAsync("siteEngrMdata('sand',0);");
+	});
+
+    });
 	
 
  </script>
@@ -155,29 +183,43 @@ p{
 					<form class="form-signin">
 						<div class="dropdown">
   							<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-    								Date
+							    Date
+							    <span class="caret"></span>
   							</button>
 							<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 							     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Today</a></li>
 							     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">All</a></li>
   							</ul>
 							</div> 
-							<table border="1" bordercolor="black" align="center" cellSpacing="5" cellPadding="2">
-							    <tr>
-								
-								<td><img src="images/bag_cement.png" class="img-responsive img-circle" width    ="auto" height="auto"></td>
-								<td><img src="images/bricks.png" class="img-responsive img-circle" width="au    to" height="auto"></td>
-							    </tr>
-		                                            <tr>
-                                                                <td><img src="images/rods.png" class="img-responsive img-circle" width="auto    " height="auto"></td>
-								<td><img src="images/sand.png" class="img-responsive img-circle" width="auto    " height="auto%"></td>                                 
+							<div class="dashboard clearfix">
+							    <ul class="tiles">
+								<div class="col1 clearfix">
+								    <li id="tile_cement" class="tile tile-big tile-2 slideTextUp" data-page-type="r-page" data-page-name="random-r-page">
+									<figure>																    <img src="images/bag_cement.png" />
+									<figcaption class="tile-caption caption-down">Cement</figcaption>
+									</figure>
+									</li><br>
+									 <li id="tile_rods" class="tile tile-big  tile-2 slideTextUp" data-page-type="r-page" data-page-name ="random-r-page">
+									    <figure>																	    <img src="images/rods.png" />													<figcaption class="tile-caption caption-down">Rods</figcaption>
+									    </figure>
+									</li>
+								    </div>
 							    
-	                                                    </tr>
-							</table>
+							             <div class="col2 clearfix">														    <li id="tile_bricks" class="tile tile-big tile-2 slideTextUp" data-page-type="r-page" data-page-name="random-r-page">
+									    <figure>																	 <img src="images/bricks.png" />												     <figcaption class="tile-caption caption-down">Bricks</figcaption>
+									    </figure>
+									    </li><br>
+									 <li id="tile_sand" class="tile tile-big tile-2 slideTextUp" data-page-type="r-    page" data-page-name ="random-r-page">
+									    <figure>																	    <img src="images/sand.png" />														<figcaption class="tile-caption caption-down">Sand</figcaption>
+									    </figure>
+									    </li>
+									</div>
+							        </ul>
+		                                            </div>
 				    	</form>
 				    </div>
 				    <button id="siteEngr_material_back" class="btn btn-lg btn-info btn-block">Back</button>
-			</div>
+    			</div>
 		</div>
 	</div>
 </body>
