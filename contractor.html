@@ -12,6 +12,8 @@
 
 	<!--<script type="text/javascript" src="lib/jquery.mobile-1.4.5.min.js"></script>-->
 
+	<!--<script type="text/javascript" src="lib/sql.js"></script>-->
+
 	<script type="text/javascript" src="lib/bootstrap.min.js"></script>
 
         <script src="CocoonJSExtensions/CocoonJS.js"></script>
@@ -129,7 +131,11 @@ p{
 
 <script>
  $(document).ready(function(){
-	console.log("document load");
+	var db = localStorage.getItem('db');
+	console.log(db);
+
+	var stmt = db.exec("SELECT * FROM hello");
+	console.log(stmt);
 
  	$("#materials").click(function(){
 		console.log("materials");
