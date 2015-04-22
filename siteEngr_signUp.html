@@ -6,16 +6,17 @@
 
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 
+        <script type="text/javascript" charset="utf-8" src="lib/jquery.min.js"></script>
+
+	<script type="text/javascript" src="lib/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="lib/signup.js"></script>
 
         <script src="CocoonJSExtensions/CocoonJS.js"></script>
 
         <script src="CocoonJSExtensions/CocoonJS_App.js"></script>
 
         <script src="CocoonJSExtensions/CocoonJS_App_ForWebView.js"></script>
-
-        <script type="text/javascript" charset="utf-8" src="lib/jquery.min.js"></script>
-
-	<script type="text/javascript" src="lib/bootstrap.min.js"></script>
 
 
 
@@ -126,9 +127,24 @@ p{
 
 <script>
  $(document).ready(function(){
+	//localStorage.removeItem("siteengineer");
 
 	$("#save_contr").click(function(){
-		CocoonJS.App.forwardAsync("contrLogin('login',0);");
+		signup(
+			"siteengineer",
+			$('#contr_name').val() , 
+			$('#contr_userId').val(), 
+			$('#contr_pwd').val(), 
+			$('#contr_confpwd').val(), 
+			$('#siteEngr_cntrId').val()
+		);
+		console.log("*******************");
+		var temp = localStorage.getItem("siteengineer");
+		console.log(temp);
+		temp= JSON.parse(temp);
+		console.log(temp);
+		//$('#contr_name').val();
+		//CocoonJS.App.forwardAsync("contrLogin('login',0);");
 	});
 
 	$("#siteEngr_signup_back").click(function(){
