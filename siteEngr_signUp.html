@@ -26,6 +26,12 @@
 
 
 <style type="text/css" media="all">
+* { 
+	-webkit-user-select:none; 
+	-webkit-tap-highlight-color:rgba(255, 255, 255, 0); 
+	-ms-touch-action:none;
+} 
+
 
 @font-face{
 
@@ -159,8 +165,8 @@ p{
 						<input type="password" placeholder="Password" id="contr_pwd" class="form-control"></input><br/>
 						<input type="password" placeholder="Confirm Password" id="contr_confpwd" class="form-control"></input><br/>
 						<input type="text" placeholder="Contractor Id" id="siteEngr_cntrId" class="form-control"></input><br/>
-						<button id="save_contr" class="btn btn-lg btn-primary pull-right">Confirm</button>
-						<button id="contr_cancel" class="btn btn-lg pull-left" style="color:black">Cancel</button><br>
+						<button id="save_contr" class="btn btn-lg btn-primary">Confirm</button>
+						<button id="contr_cancel" class="btn btn-lg pull-right" style="color:black">Cancel</button>
 					</form>
 				    </div>
 				    <button id="siteEngr_signup_back" class="btn btn-lg btn-info btn-block">Back</button>

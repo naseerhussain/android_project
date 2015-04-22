@@ -23,7 +23,7 @@
 
 	<script src="lib/jquery-1.8.2.min.js"></script>
 
-	 <script src="lib/scripts.js"></script>
+	<!-- <script src="lib/scripts.js"></script>-->
 
 
 
@@ -130,38 +130,28 @@ p{
 <script>
     $(document).ready(function(){
 
- 	$("#contractor").click(function(){
-		console.log("contractor");
-		CocoonJS.App.forwardAsync("redirect('contractor',0);");
- 	});
-
-	$("#siteEngineer").click(function(){
-		console.log("site engineer");
-		CocoonJS.App.forwardAsync("redirect('siteEngineer',0);");
-	});
-	
 	$("#siteEngr_material_back").click(function(){
 	    CocoonJS.App.forwardAsync("welcomeSiteEngr(0);");
 	});
 
 	$("#tile_cement").click(function(){
-		console.log("cement clicked");
-	 //   CocoonJS.App.forwardAsync("siteEngrMdata('cement',0);");
+		//console.log("cement clicked");
+	    CocoonJS.App.forwardAsync("siteEngrMdata('Cement',0);");
 	});
 
-	$("#tile-bricks").click(function(){
-	    console.log("bricks clicked");
-	   // CocoonJS.App.forwardAsync("siteEngrMdata('bricks',0);");
+	$("#tile_bricks").click(function(){
+	   // console.log("bricks clicked");
+	    CocoonJS.App.forwardAsync("siteEngrMdata('Bricks',0);");
 	});
 
-	$("#tile-rods").click(function(){
-		console.log("rods clicked");
-		//CocoonJS.App.forwardAsync("siteEngrMdata('rods',0);");
+	$("#tile_rods").click(function(){
+		//console.log("rods clicked");
+		CocoonJS.App.forwardAsync("siteEngrMdata('Rods',0);");
 	});
 
-	$("#tile-sand").click(function(){
-	    console.log("sand clicked");
-	    //CocoonJS.App.forwardAsync("siteEngrMdata('sand',0);");
+	$("#tile_sand").click(function(){
+	    //console.log("sand clicked");
+	    CocoonJS.App.forwardAsync("siteEngrMdata('Sand',0);");
 	});
 
     });
@@ -188,22 +178,22 @@ p{
 							<div class="dashboard clearfix">
 							    <ul class="tiles">
 								<div class="col1 clearfix">
-								    <li id="tile_cement" class="tile tile-big tile-2 slideTextUp" data-page-type="r-page" data-page-name="random-r-page">
+								    <li id="tile_cement" class="tile tile-big tile-1 slideTextUp">
 									<figure>																    <img src="images/bag_cement.png" />
 									<figcaption class="tile-caption caption-down">Cement</figcaption>
 									</figure>
 									</li><br>
-									 <li id="tile_rods" class="tile tile-big  tile-2 slideTextUp" data-page-type="r-page" data-page-name ="random-r-page">
+									 <li id="tile_rods" class="tile tile-big  tile-2 slideTextUp">
 									    <figure>																	    <img src="images/rods.png" />													<figcaption class="tile-caption caption-down">Rods</figcaption>
 									    </figure>
 									</li>
 								    </div>
 							    
-							             <div class="col2 clearfix">														    <li id="tile_bricks" class="tile tile-big tile-2 slideTextUp" data-page-type="r-page" data-page-name="random-r-page">
+							             <div class="col2 clearfix">														    <li id="tile_bricks" class="tile tile-big tile-5 slideTextUp">
 									    <figure>																	 <img src="images/bricks.png" />												     <figcaption class="tile-caption caption-down">Bricks</figcaption>
 									    </figure>
 									    </li><br>
-									 <li id="tile_sand" class="tile tile-big tile-2 slideTextUp" data-page-type="r-    page" data-page-name ="random-r-page">
+									 <li id="tile_sand" class="tile tile-big tile-6 slideTextUp">
 									    <figure>																	    <img src="images/sand.png" />														<figcaption class="tile-caption caption-down">Sand</figcaption>
 									    </figure>
 									    </li>

@@ -42,6 +42,17 @@
 		CocoonJS.App.loadInTheWebView("webview_index.html");
 	    }
 
+	    siteEngrMaterial = function(){
+		CocoonJS.App.loadInTheWebView("siteEngr_materials.html");
+	    }
+	    welcomeSiteEngr= function(){
+		CocoonJS.App.loadInTheWebView("siteEngineer.html");
+	    }
+
+	    Signupback = function(){
+		CocoonJS.App.loadInTheWebView("siteengineer_login.html");
+	    }
+
 	    redirect = function(toPage){
 		console.log("index.html file = " + toPage);
 		if(toPage == "contractor"){
@@ -111,6 +122,8 @@
 
 	    siteEngrMdata = function(type){
 		console.log(type);
+		localStorage.setItem("material",type);
+		CocoonJS.App.loadInTheWebView("siteEngr_materialsData.html");
 	    }
 
 	    contrWorkProgressNewTask = function(){
