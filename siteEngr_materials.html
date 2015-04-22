@@ -34,13 +34,6 @@
 
 
 <style type="text/css" media="all">
-* { 
-	-webkit-user-select:none; 
-	-webkit-tap-highlight-color:rgba(255, 255, 255, 0); 
-	-ms-touch-action:none;
-} 
-
-
 @font-face{
 
     font-family:"Source Sans Pro";
@@ -152,22 +145,23 @@ p{
 	});
 
 	$("#tile_cement").click(function(){
-	    CocoonJS.App.forwardAsync("siteEngrMdata('cement',0);");
+		console.log("cement clicked");
+	 //   CocoonJS.App.forwardAsync("siteEngrMdata('cement',0);");
 	});
 
 	$("#tile-bricks").click(function(){
-	    console.log("******8");
-	    CocoonJS.App.forwardAsync("siteEngrMdata('bricks',0);");
+	    console.log("bricks clicked");
+	   // CocoonJS.App.forwardAsync("siteEngrMdata('bricks',0);");
 	});
 
 	$("#tile-rods").click(function(){
-		console.log("&&&&&&& rods");
-		CocoonJS.App.forwardAsync("siteEngrMdata('rods',0);");
+		console.log("rods clicked");
+		//CocoonJS.App.forwardAsync("siteEngrMdata('rods',0);");
 	});
 
 	$("#tile-sand").click(function(){
-	    console.log("^^^^^^ sand");
-	    CocoonJS.App.forwardAsync("siteEngrMdata('sand',0);");
+	    console.log("sand clicked");
+	    //CocoonJS.App.forwardAsync("siteEngrMdata('sand',0);");
 	});
 
     });
