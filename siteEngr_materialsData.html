@@ -17,6 +17,8 @@
 
 	<script type="text/javascript" src="lib/bootstrap.min.js"></script>
 
+	<script type="text/javascript" src="lib/saveMaterialsData.js"></script>
+
 
 
 <title>New App</title>
@@ -131,6 +133,23 @@ p{
 
 	$("#siteEngr_mData_back").click(function(){
 		CocoonJS.App.forwardAsync("siteEngrMaterial(0);");
+	});
+	
+	localStorage.removeItem("materialsTable");
+
+	$("#siteEngr_mData_save").click(function(){
+		saveMaterials(
+				item,
+				$("#siteEngr_mData_qty").val(),
+				$("#siteEngr_mData_amt").val()
+		);
+		console.log("*******************");
+                var temp = localStorage.getItem("materialsTable");
+                console.log(temp);
+                temp= JSON.parse(temp);
+                console.log(temp);
+		CocoonJS.App.forwardAsync("siteEngrRedirect('materials',0);");
+
 	});
 
 
