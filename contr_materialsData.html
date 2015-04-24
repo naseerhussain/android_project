@@ -130,8 +130,10 @@ p{
 	});
 
 	var print = fetchData(item);
-	print = JSON.stringify(print);
 	console.log(parseInt(print[0]));
+
+	$("#contr_mData_qty").val(print[1]);
+	$("#contr_mData_amt").val(toRupees(print[0])+"/-Rs");	
 	//console.log(print[0], print[1]);
 
  });
@@ -143,8 +145,8 @@ p{
 				<h1 class="text-center login-title" id="materialName"></h1>
 				<div class="account-wall">
 				    <form class="form-signin">
-					    <span style="color:black">Quantity:</span><br>
-					    <input type="text" id="siteEngr_mData_qty" class="form-control" disabled></input><br>
+					    <span style="color:black">Total Quantity:</span><br>
+					    <input type="text" id="contr_mData_qty" class="form-control" disabled></input><br>
 					    <div class="dropdown">   
 					    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true" >
 						Kg/Ltr/Load  
@@ -157,9 +159,9 @@ p{
 					     </ul>
 					 </div>
 					     <br>
-					     <span style="color:black">Amount</span>
-					     <input type="text" id="siteEngr_mData_amt" class="form-control" disabled></input><br>
-					   <!--<button id="siteEngr_mData_save" class="btn btn-lg btn-primary pull-right">Save</button>
+					     <span style="color:black">Total Amount for this Item</span>
+					     <input type="text" id="contr_mData_amt" class="form-control" disabled></input><br>
+					 <!--    <button id="contr_mData_calc" class="btn btn-lg btn-primary pull-right">Calculate</button>
 					   <button id="siteEngr_mData_cancel" class="btn btn-lg btn-default pull-left">Cancel</button><br/>-->
 
 				    </form>
