@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html class='ui-mobile'>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 
 	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -16,6 +17,15 @@
 
 	<script type="text/javascript" src="lib/bootstrap.min.js"></script>
 
+	<link rel="stylesheet" href="css/demo-styles.css" />
+
+	<script src="lib/modernizr-1.5.min.js"></script>
+
+	<script src="lib/jquery-1.8.2.min.js"></script>
+
+	<!-- <script src="lib/scripts.js"></script>-->
+
+
 
 
 <title>New App</title>
@@ -24,7 +34,6 @@
 
 
 <style type="text/css" media="all">
-
 @font-face{
 
     font-family:"Source Sans Pro";
@@ -115,24 +124,40 @@ p{
 }
 
 
-  table, tr, td{
-	    border: 1px solid black;
-	     border-collapse: collapse;
-	    }
-	    tr, td {
-		    padding: 15px;
-		}
-	
 </style>
 
 
 <script>
- $(document).ready(function(){
-	$("#contr_materials_back").click(function(){
-		CocoonJS.App.forwardAsync("contrMaterialsBack(0);");
+    $(document).ready(function(){
+
+	$("#siteEngr_material_back").click(function(){
+	    CocoonJS.App.forwardAsync("welcomeSiteEngr(0);");
 	});
- });
-</script>
+
+	$("#tile_cement").click(function(){
+		//console.log("cement clicked");
+	    CocoonJS.App.forwardAsync("contrMdata('Cement',0);");
+	});
+
+	$("#tile_bricks").click(function(){
+	   // console.log("bricks clicked");
+	    CocoonJS.App.forwardAsync("contrMdata('Bricks',0);");
+	});
+
+	$("#tile_rods").click(function(){
+		//console.log("rods clicked");
+		CocoonJS.App.forwardAsync("contrMdata('Rods',0);");
+	});
+
+	$("#tile_sand").click(function(){
+	    //console.log("sand clicked");
+	    CocoonJS.App.forwardAsync("contrMdata('Sand',0);");
+	});
+
+    });
+	
+
+ </script>
 <body>
 	<div class="container">
 		<div class="row">
@@ -142,28 +167,43 @@ p{
 					<form class="form-signin">
 						<div class="dropdown">
   							<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-    								Date
-    								<span class="caret"></span>
+							    Date
+							    <span class="caret"></span>
   							</button>
-  							<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    								<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Today</a></li>
-    								<li role="presentation"><a role="menuitem" tabindex="-1" href="#">All</a></li>
+							<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Today</a></li>
+							     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">All</a></li>
   							</ul>
-						</div><br/>
-				    	<table border="1" bordercolor="black" align="center" cellSpacing="5" cellPadding="2">
-							<tr>
-								<td><img src="images/bag_cement.png" class="img-responsive img-circle" width="auto" height="auto"></td>
-								<td><img src="images/bricks.png" class="img-responsive img-circle" width="auto" height="auto"></td>
-							</tr>
-							<tr>
-								<td><img src="images/rods.png" class="img-responsive img-circle" width="auto" height="auto"></td>
-								<td><img src="images/sand.png" class="img-responsive img-circle" width="auto" height="auto%"></td>
-							</tr>
-						</table>
-					</form>
-				 </div>
-				<button id="contr_materials_back" class="btn btn-info btn-lg btn-block">Back</button>
-			</div>
+							</div> 
+							<div class="dashboard clearfix">
+							    <ul class="tiles">
+								<div class="col1 clearfix">
+								    <li id="tile_cement" class="tile tile-big tile-1 slideTextUp">
+									<figure>																    <img src="images/bag_cement.png" />
+									<figcaption class="tile-caption caption-down">Cement</figcaption>
+									</figure>
+									</li><br>
+									 <li id="tile_rods" class="tile tile-big  tile-2 slideTextUp">
+									    <figure>																	    <img src="images/rods.png" />													<figcaption class="tile-caption caption-down">Rods</figcaption>
+									    </figure>
+									</li>
+								    </div>
+							    
+							             <div class="col2 clearfix">														    <li id="tile_bricks" class="tile tile-big tile-5 slideTextUp">
+									    <figure>																	 <img src="images/bricks.png" />												     <figcaption class="tile-caption caption-down">Bricks</figcaption>
+									    </figure>
+									    </li><br>
+									 <li id="tile_sand" class="tile tile-big tile-6 slideTextUp">
+									    <figure>																	    <img src="images/sand.png" />														<figcaption class="tile-caption caption-down">Sand</figcaption>
+									    </figure>
+									    </li>
+									</div>
+							        </ul>
+		                                            </div>
+				    	</form>
+				    </div>
+				    <button id="siteEngr_material_back" class="btn btn-lg btn-info btn-block">Back</button>
+    			</div>
 		</div>
 	</div>
 </body>

@@ -121,14 +121,19 @@
 	    }
 
 	    siteEngrMdata = function(type){
-		console.log(type);
 		localStorage.setItem("material",type);
 		CocoonJS.App.loadInTheWebView("siteEngr_materialsData.html");
+	    }
+	   
+	    contrMdata = function(type){
+		localStorage.setItem("material",type);
+		CocoonJS.App.loadInTheWebView("contr_materialsData.html");
 	    }
 
 	    contrWorkProgressNewTask = function(){
 		CocoonJS.App.loadInTheWebView("contr_workprogress_newTask.html");
 	    }
+
 <!--Go back to menu-->
 	    contrMaterialsBack = function(){
 		CocoonJS.App.loadInTheWebView("contractor.html");

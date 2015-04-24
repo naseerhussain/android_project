@@ -17,7 +17,7 @@
 
 	<script type="text/javascript" src="lib/bootstrap.min.js"></script>
 
-	<script type="text/javascript" src="lib/saveMaterialsData.js"></script>
+	<script type="text/javascript" src="lib/fetchMaterialsData.js"></script>
 
 
 
@@ -27,12 +27,6 @@
 
 
 <style type="text/css" media="all">
-* { 
-	-webkit-user-select:none; 
-	-webkit-tap-highlight-color:rgba(255, 255, 255, 0); 
-	-ms-touch-action:none;
-} 
-
 
 @font-face{
 
@@ -131,23 +125,14 @@ p{
 	var item = localStorage.getItem("material");
 	$("#materialName").text(item);
 
-	$("#siteEngr_mData_back").click(function(){
-		CocoonJS.App.forwardAsync("siteEngrMaterial(0);");
-	});
-	
-	//localStorage.removeItem("materialsTable");
-
-	$("#siteEngr_mData_save").click(function(){
-		saveMaterials(
-				item,
-				$("#siteEngr_mData_qty").val(),
-				$("#siteEngr_mData_amt").val()
-		);
-		
-		CocoonJS.App.forwardAsync("siteEngrRedirect('materials',0);");
-
+	$("#contr_mData_back").click(function(){
+		CocoonJS.App.forwardAsync("contractorRedirect('materials',0);");
 	});
 
+	var print = fetchData(item);
+	print = JSON.stringify(print);
+	console.log(parseInt(print[0]));
+	//console.log(print[0], print[1]);
 
  });
 </script>
@@ -159,9 +144,9 @@ p{
 				<div class="account-wall">
 				    <form class="form-signin">
 					    <span style="color:black">Quantity:</span><br>
-					    <input type="text" id="siteEngr_mData_qty" class="form-control"</input><br>
+					    <input type="text" id="siteEngr_mData_qty" class="form-control" disabled></input><br>
 					    <div class="dropdown">   
-					    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+					    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true" >
 						Kg/Ltr/Load  
 						<span class="caret"></span>
 					    </button>
@@ -173,13 +158,13 @@ p{
 					 </div>
 					     <br>
 					     <span style="color:black">Amount</span>
-					     <input type="text" id="siteEngr_mData_amt" class="form-control"></input><br>
-					   <button id="siteEngr_mData_save" class="btn btn-lg btn-primary pull-right">Save</button>
-					   <button id="siteEngr_mData_cancel" class="btn btn-lg btn-default pull-left">Cancel</button><br/>
+					     <input type="text" id="siteEngr_mData_amt" class="form-control" disabled></input><br>
+					   <!--<button id="siteEngr_mData_save" class="btn btn-lg btn-primary pull-right">Save</button>
+					   <button id="siteEngr_mData_cancel" class="btn btn-lg btn-default pull-left">Cancel</button><br/>-->
 
 				    </form>
 				</div>
-				<button id="siteEngr_mData_back" class="btn btn-lg btn-info btn-block">Back</button>
+				<button id="contr_mData_back" class="btn btn-lg btn-info btn-block">Back</button>
 			</div>
 		</div>
 	</div>
