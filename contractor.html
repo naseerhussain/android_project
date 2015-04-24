@@ -131,12 +131,6 @@ p{
 
 <script>
  $(document).ready(function(){
-	var db = localStorage.getItem('db');
-	console.log(db);
-
-	var stmt = db.exec("SELECT * FROM hello");
-	console.log(stmt);
-
  	$("#materials").click(function(){
 		console.log("materials");
 		CocoonJS.App.forwardAsync("contractorRedirect('materials',0);");
