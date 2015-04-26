@@ -17,6 +17,10 @@
 
 	<script type="text/javascript" src="lib/bootstrap.min.js"></script>
 
+	<script type="text/javascript" src="lib/fetchMaterialsData.js"></script>
+	
+	<script type="text/javascript" src="lib/contr_siteEngrPage.js"></script>
+
 
 
 <title>New App</title>
@@ -126,9 +130,19 @@ color:black;
 
 <script>
  $(document).ready(function(){
+	
+	var totalAmtForMaterials = totalAmountForAllMaterials();
+
+	addSiteEngr(totalAmtForMaterials);
+
 	$("#contr_site_engr_back").click(function(){
 		CocoonJS.App.forwardAsync("contrSiteEngrBack(0);");
 	});
+
+	//$("#selectSiteEngr").on('change',function(){
+       	 //	alert(this.value);
+	//});
+	
  });
 </script>
 <body>
@@ -139,27 +153,16 @@ color:black;
 				<div class="account-wall">
 					<form class="form-signin">
 						<label>Select site engineer </label> 
-						<div class="dropdown">
-						<button class="btn btn-default dropdown-toggle" type="button" id="contr_siteEngr_selectEngr" data-toggle="dropdown" area-expanded="true">
-						select
-						<span class="caret"</span>
-						</button>
-						<ul class="dropdown-menu" aria-labelledby="contr_siteEngr_selectEngr">
-							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Name1</a></li>
-							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Name2</a></li>
-						</ul>
-						</div><br><br>
-					<!--	<div class="row">
-							<div class="block">
-								<div class="input-group">
-									<span class="input-group-btn">
-									</span>
-								</div>
-							</div>
-						</div>-->
-						<input type="text" id="contr_siteEngr_addAmt" class="form-control" placeholder="Add amount">
-						<button id="contr_siteEngr_submit" class="btn btn-success pull-right" type="button">Submit</button><br><br>
-						<label>Amount left with site Engineer </label> <input type="text" id="contr_siteEngr_amtleft" class="form-control">
+						<select class="dropdown block" id="selectSiteEngr" style="color:black;">
+						</select><br>
+						<label>Add Amount : </label>
+						<input type="text" id="contr_siteEngr_addAmt" class="form-control" placeholder="Add amount"><br>
+						<label>Total Amount Paid:</label>
+						<input type="text" id="contr_siteEngr_totalAmtPaid" class="form-control" placeholder="Total Amount Paid"><br/>
+						<label>Amount left with site Engineer </label> <input type="text" id="contr_siteEngr_amtleft" class="form-control"><br>
+						
+
+						<button id="contr_siteEngr_submit" class="btn btn-primary pull-right" type="button">Pay</button><br><br>
 					</form>
 				</div>
 				<button id="contr_site_engr_back" class="btn btn-info btn-lg btn-block">Back</button>	
