@@ -16,6 +16,8 @@
         <script type="text/javascript" charset="utf-8" src="lib/jquery.min.js"></script>
 
 	<script type="text/javascript" src="lib/bootstrap.min.js"></script>
+	
+	<script type="text/javascript" src="lib/signIn.js"></script>
 
 
 
@@ -122,10 +124,20 @@ p{
  $(document).ready(function(){
 
  	$("#siteEngr_signIn").click(function(){
-		if($("#siteEngr_userId").val() == "siteengineer"){
+	/*	if($("#siteEngr_userId").val() == "siteengineer"){
 			if($("#siteEngr_pwd").val() == "test"){
 				CocoonJS.App.forwardAsync("siteEngrLogin('login',0);");
 			}
+		}*/
+		var isUser = signIn(
+					"siteengineer",
+					$("#siteEngr_userId").val(),
+					$("#siteEngr_pwd").val()
+		      		   );
+		if(isUser){
+			CocoonJS.App.forwardAsync("siteEngrLogin('login',0);");
+		}else{
+			alert("Incorrect Username or Password");
 		}
  	});
 	

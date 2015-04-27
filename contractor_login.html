@@ -19,6 +19,8 @@
         <script src="CocoonJSExtensions/CocoonJS_App.js"></script>
 
         <script src="CocoonJSExtensions/CocoonJS_App_ForWebView.js"></script>
+	
+	<script type="text/javascript" src="lib/signIn.js"></script>
 
 
 
@@ -126,11 +128,23 @@ p{
  $(document).ready(function(){
 
  	$("#contr_signIn").click(function(){
-		if($("#contr_userId").val() == "contractor"){
+		/*if($("#contr_userId").val() == "contractor"){
 			if($("#contr_pwd").val() == "test"){
 				CocoonJS.App.forwardAsync("contrLogin('login',0);");
 			}
-		}
+		}*/
+
+		var isUser = signIn(
+                                        "contractor",
+                                        $("#contr_userId").val(),
+                                        $("#contr_pwd").val()
+                                   );
+                if(isUser){
+                        CocoonJS.App.forwardAsync("contrLogin('login',0);");
+                }else{
+                        alert("Incorrect Username or Password");
+                }
+
  	});
 	
 	$("#contr_signUp").click(function(){

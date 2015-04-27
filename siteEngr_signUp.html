@@ -26,12 +26,6 @@
 
 
 <style type="text/css" media="all">
-* { 
-	-webkit-user-select:none; 
-	-webkit-tap-highlight-color:rgba(255, 255, 255, 0); 
-	-ms-touch-action:none;
-} 
-
 
 @font-face{
 
@@ -129,22 +123,18 @@ p{
  $(document).ready(function(){
 	//localStorage.removeItem("siteengineer");
 
-	$("#save_contr").click(function(){
-		signup(
-			"siteengineer",
-			$('#contr_name').val() , 
-			$('#contr_userId').val(), 
-			$('#contr_pwd').val(), 
-			$('#contr_confpwd').val(), 
-			$('#siteEngr_cntrId').val()
-		);
-		console.log("*******************");
-		var temp = localStorage.getItem("siteengineer");
-		console.log(temp);
-		temp= JSON.parse(temp);
-		console.log(temp);
-		//$('#contr_name').val();
-		//CocoonJS.App.forwardAsync("contrLogin('login',0);");
+	$("#siteEngr_save").click(function(){
+		var correctUser = signup(
+					"siteengineer",
+					$('#siteEngr_name').val() , 
+					$('#siteEngr_userId').val(), 
+					$('#siteEngr_pwd').val(), 
+					$('#siteEngr_confpwd').val(), 
+					$('#siteEngr_cntrId').val()
+					);
+		if(correctUser){
+			CocoonJS.App.forwardAsync("siteEngrLogin('login',0);");
+		}
 	});
 
 	$("#siteEngr_signup_back").click(function(){
@@ -160,13 +150,13 @@ p{
 				<h1 class="text-center login-title">Site Engineer Sign Up</h1>
 				<div class="account-wall">
 					<form class="form-signin">
-						<input type="text" placeholder="Name" id="contr_name" class="form-control"></input><br/>
-						<input type="text" placeholder="User Id" id="contr_userId" class="form-control"></input><br/>
-						<input type="password" placeholder="Password" id="contr_pwd" class="form-control"></input><br/>
+						<input type="text" placeholder="Name" id="siteEngr_name" class="form-control"></input><br/>
+						<input type="text" placeholder="User Id" id="siteEngr_userId" class="form-control"></input><br/>
+						<input type="password" placeholder="Password" id="siteEngr_pwd" class="form-control"></input><br/>
 						<input type="password" placeholder="Confirm Password" id="contr_confpwd" class="form-control"></input><br/>
 						<input type="text" placeholder="Contractor Id" id="siteEngr_cntrId" class="form-control"></input><br/>
-						<button id="save_contr" class="btn btn-lg btn-primary">Confirm</button>
-						<button id="contr_cancel" class="btn btn-lg pull-right" style="color:black">Cancel</button>
+						<button id="siteEngr_save" class="btn btn-lg btn-primary">Confirm</button>
+						<button id="siteEngr_cancel" class="btn btn-lg pull-right" style="color:black">Cancel</button>
 					</form>
 				    </div>
 				    <button id="siteEngr_signup_back" class="btn btn-lg btn-info btn-block">Back</button>
