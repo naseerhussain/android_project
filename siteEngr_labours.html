@@ -163,28 +163,94 @@ height:15px;
 	{
 		lab2=0;
 	}*/
-	localStorage.removeItem("labours");	
+	//localStorage.removeItem("labours");	
+	$("#pay1").keyup(function(){
+		showTotalAmt();
+	});
+	$("#pay2").keyup(function(){
+		showTotalAmt();
+	});
+
+	function showTotalAmt(){
+		
+		var amt1 = $("#pay1").val() || 0;
+		var amt2 = $("#pay2").val() || 0;
+
+		$("#siteEngr_labours_totalPaid").val(parseInt(amt1)+parseInt(amt2));
+	}
+	$("#lab1").change(function(){
+		showLabPresent();
+	});
+	$("#lab2").change(function(){
+		showLabPresent();	
+	});	
+	function showLabPresent()
+	{
+		var lab1=$("#lab1").is(":checked");
+		var lab2=$("#lab2").is(":checked");
+		//console.log("it is" + lab1);
+		if(lab1==true)
+		{
+			var lab1=1;
+		}
+		else
+		{
+			lab1=0;
+		}
+		if(lab2==true)
+		{
+			var lab2=1;
+		}
+		else
+		{
+			lab2=0;
+		}
+		
+		$("#siteEngr_labours_present").text(parseInt(lab1)+parseInt(lab2));
+	}
+		
+
 	$("#siteEngr_labours_pay").click(function(){
 	
 		var attendance=[];
+		//var attended=[];
 		attendance[0]=$("#lab1").is(":checked");
 		attendance[1]=$("#lab2").is(":checked");
+		
 		var  pay=[];
 		pay[0]=$("#pay1").val();
 		pay[1]=$("#pay2").val();
 		console.log(attendance[0]+" "+attendance[1]);
 		var i;
+		
 		for(i=0;i<attendance.length;i++)
 		{
+			if(attendance[i]==true)
+			{
+				attendance[i]="present";
+				//attended[i]=1;
+			}		
+			else
+			{
+				attendance[i]="absent";
+				//attended[i]=0;
+			}
 			laboursPay(
 				$("#contr_labours_date").val(),
 				attendance[i],
 				pay[i]
 				//$("#siteEngr_labours_present").val(),
 				//$("#siteEngr_labours_totalPaid").val()
-		);
+			);
 			
 		}
+	
+		/*var total_present=attended[0]+attended[1];
+		$("#siteEngr_labours_present").val(total_present);
+		
+		var total_paid=pay[0]+pay[1];	
+		$("#siteEngr_labours_totalPaid").val(total_paid);*/
+
 		console.log("labours paid");
 		var labTable = localStorage.getItem("labours");
 		console.log(labTable);
