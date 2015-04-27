@@ -140,7 +140,11 @@ p{
 	$("#labours").click(function(){
 		console.log("labours");
 		CocoonJS.App.forwardAsync("siteEngrRedirect('labours',0);");
-	});
+	    });
+	$("#back_siteEngr_signout").click(function(){
+	                CocoonJS.App.forwardAsync("mainMenu(0);");
+             });
+
  });
 </script>
 <body>
@@ -154,7 +158,8 @@ p{
                                                 <button id="workProgress" class="btn btn-lg btn-primary btn-block">Work Progress</button>
 						<button id="labours" class="btn btn-lg btn-primary btn-block">Labours</button>
                                         </form>
-                                </div>
+				    </div>  
+					<button id="back_siteEngr_signout" class="btn btn-lg btn-info btn-block">Signout</button>
 			</div>
 		</div>
 	</div>

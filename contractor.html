@@ -147,6 +147,11 @@ p{
 	$("#siteEng").click(function(){
 		console.log("site engineer");
 		CocoonJS.App.forwardAsync("contractorRedirect('siteEngineer',0);")
+	    });
+	$("#back_contr_signout").click(function(){
+                   CocoonJS.App.forwardAsync("mainMenu(0);");
+		    
+
 	});
  });
 </script>
@@ -162,7 +167,9 @@ p{
 						<button id="labours" class="btn btn-lg btn-primary btn-block">Labours</button>
 						<button id="siteEng" class="btn btn-lg btn-primary btn-block">Site Engineer</button>
                                         </form>
-                                </div>
+				    </div>
+					<button id="back_contr_signout" class="btn btn-lg btn-info btn-block">Signout</button>
+
 			</div>
 		</div>
 	</div>
