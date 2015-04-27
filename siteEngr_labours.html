@@ -16,6 +16,8 @@
         <script type="text/javascript" charset="utf-8" src="lib/jquery.min.js"></script>
 
 	<script type="text/javascript" src="lib/bootstrap.min.js"></script>
+	
+	<script type="text/javascript" src="lib/labours.js"></script>
 
 
 
@@ -90,7 +92,7 @@ body {
     border-bottom-right-radius: 0;
 }
 .form-signin input[type="password"]
-{
+	{
     margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -145,7 +147,50 @@ height:15px;
 	$("#siteEngr_labour_back").click(function(){
 	        CocoonJS.App.forwardAsync("welcomeSiteEngr(0);");
 	 });
-
+	/*if(document.getElementById("lab1")==true)
+	{
+		var lab1=1;
+	}
+	else
+	{
+		lab1=0;
+	}
+	if(document.getElementById("lab2)==true)
+	{
+		var lab2=1;
+	}
+	else
+	{
+		lab2=0;
+	}*/
+	localStorage.removeItem("labours");	
+	$("#siteEngr_labours_pay").click(function(){
+	
+		var attendance=[];
+		attendance[0]=$("#lab1").is(":checked");
+		attendance[1]=$("#lab2").is(":checked");
+		var  pay=[];
+		pay[0]=$("#pay1").val();
+		pay[1]=$("#pay2").val();
+		console.log(attendance[0]+" "+attendance[1]);
+		var i;
+		for(i=0;i<attendance.length;i++)
+		{
+			laboursPay(
+				$("#contr_labours_date").val(),
+				attendance[i],
+				pay[i]
+				//$("#siteEngr_labours_present").val(),
+				//$("#siteEngr_labours_totalPaid").val()
+		);
+			
+		}
+		console.log("labours paid");
+		var labTable = localStorage.getItem("labours");
+		console.log(labTable);
+		labTable=JSON.parse(labTable);
+		console.log(labTable);
+		});
  });
 </script>
 <body>

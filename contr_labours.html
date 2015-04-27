@@ -17,7 +17,7 @@
 
 	<script type="text/javascript" src="lib/bootstrap.min.js"></script>
 
-
+	<script type="text/javascript" src="lib/labours.js"></script>
 
 <title>New App</title>
 
@@ -127,12 +127,34 @@ height:15px;
 
 <script>
  $(document).ready(function(){
+	showLabVal()
+	{
+	document.getElementById("contr_labours_date").value="date";
+	if("lab1"==1)
+	{
+		lab1.checked="true";
+	}
+	else
+	{
+		lab1.checked="false";
+	}
+	if("lab2"==1)
+	{
+		lab2.checked="true";
+	}
+	else
+	{
+		lab2.checked="false";
+	}
+	document.getElementById("pay1").value="pay1";
+	document.getElementById("pay2").value="pay2";
+	
 	$("#contr_labours_back").click(function(){
 		CocoonJS.App.forwardAsync("contrLaboursBack(0);");
 	});
  });
 </script>
-<body>
+<body onload="showLabVal()">
 	<div class="container">
 		<div class="row">
         		<div class="col-sm-6 col-md-4 col-md-offset-4">
