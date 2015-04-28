@@ -127,31 +127,14 @@ height:15px;
 
 <script>
  $(document).ready(function(){
-	showLabVal()
-	{
-	document.getElementById("contr_labours_date").value="date";
-	if("lab1"==1)
-	{
-		lab1.checked="true";
-	}
-	else
-	{
-		lab1.checked="false";
-	}
-	if("lab2"==1)
-	{
-		lab2.checked="true";
-	}
-	else
-	{
-		lab2.checked="false";
-	}
-	document.getElementById("pay1").value="pay1";
-	document.getElementById("pay2").value="pay2";
-	
 	$("#contr_labours_back").click(function(){
 		CocoonJS.App.forwardAsync("contrLaboursBack(0);");
 	});
+	var labTable=localStorage.getItem("labours");
+	labTable=JSON.parse(labTable);
+	Object.getDetails(labTable);
+	
+	
  });
 </script>
 <body onload="showLabVal()">
