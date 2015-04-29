@@ -131,8 +131,25 @@ height:15px;
 		CocoonJS.App.forwardAsync("contrLaboursBack(0);");
 	});
 	var labTable=localStorage.getItem("labours");
-	labTable=JSON.parse(labTable);
-	Object.getDetails(labTable);
+	//labTable=JSON.parse(labTable);
+	var show=fetchLaboursData();
+	var i,j;
+	for(i=0;i<Object.size(labTable);i++)
+	{
+		for(j=0;j<Object.size(labTable);j++)
+		{
+			if(show[i][j]="present")
+			{
+				$("#lab1").is(":checked")=true;
+			}		
+			else
+			{
+				$("#lab1").is(":checked")=false;
+			}
+		$("#date").text(show[i][j]);
+		$("#pay").val(show[i][j]);
+		}
+	}
 	
 	
  });
