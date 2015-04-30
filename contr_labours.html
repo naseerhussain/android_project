@@ -17,7 +17,9 @@
 
 	<script type="text/javascript" src="lib/bootstrap.min.js"></script>
 
-	<script type="text/javascript" src="lib/labours.js"></script>
+	<!--<script type="text/javascript" src="lib/labours.js"></script>-->
+
+	<script type="text/javascript" src="lib/contr_fetchLabours.js"></script>
 
 <title>New App</title>
 
@@ -130,8 +132,51 @@ height:15px;
 	$("#contr_labours_back").click(function(){
 		CocoonJS.App.forwardAsync("contrLaboursBack(0);");
 	});
-	var labTable=localStorage.getItem("labours");
+	
+	fillDates();
+
+	$("#selectDate").change(function(){
+		var selected = this.value;
+		var lTable = fetchLaboursData(selected);
+		var size = Object.size(lTable) , totalAmt = 0 , present = 0;
+
+	        for(var i = 1; i <= size ; i++){
+        	        var attendance = lTable[i].attendance;
+                	present += (attendance == "present")? 1 : 0 ;
+                	attendance = (attendance=="present")? true : false;
+               	 	$("#lab"+i).prop('checked', attendance);
+                	$("#pay"+i).val(lTable[i].pay);
+
+                	totalAmt += parseInt(lTable[i].pay);
+        	}
+
+        	$("#contr_labours_totalPaid").val(totalAmt);
+        	$("#contr_labours_present").val(present);
+
+	});
+
+/*	
+	var lTable = fetchLaboursData();
+	var size = Object.size(lTable) , totalAmt = 0 , present = 0;
+
+	for(var i = 1; i <= size ; i++){
+		var attendance = lTable[i].attendance;
+		present += (attendance == "present")? 1 : 0 ;
+		attendance = (attendance=="present")? true : false;
+		$("#lab"+i).prop('checked', attendance);
+		$("#pay"+i).val(lTable[i].pay);
+		$("#contr_labours_date").val(lTable[i].date);	
+		totalAmt += parseInt(lTable[i].pay);
+	}
+
+        $("#contr_labours_totalPaid").val(totalAmt);
+	$("#contr_labours_present").val(present);
+
+
+//Praveen's code
+	//var labTable=localStorage.getItem("labours");
 	//labTable=JSON.parse(labTable);
+/*
 	var show=fetchLaboursData();
 	var i,j;
 	for(i=0;i<Object.size(labTable);i++)
@@ -150,26 +195,30 @@ height:15px;
 		$("#pay").val(show[i][j]);
 		}
 	}
-	
+*/	
 	
  });
 </script>
-<body onload="showLabVal()">
+<body>
 	<div class="container">
 		<div class="row">
         		<div class="col-sm-6 col-md-4 col-md-offset-4">
 				<h1 class="text-center login-title">Labours</h1>
 				<div class="account-wall">
 					<form class="form-signin">
-						<label> Date : </label><input type="datetime" id="contr_labours_date" class="form-control"><br>
-						<label> Labour1 : </label><input type="checkbox" id="lab1"><input type="text" id="pay1" class="form-control" placeholder="Amount paid"><br>
-						<label> Labour2 : </label><input type="checkbox" id="lab2"><input type="text" id="pay2" class="form-control" placeholder="Amount paid"><br>
+						<!--<label> Date : </label><input type="datetime" id="contr_labours_date" class="form-control" disabled><br>-->
+						<label>Select Date </label>
+                                                <select class="dropdown block" id="selectDate" style="color:black;">
+                                                </select><br>
+
+						<label> Labour1 : </label><input type="checkbox" id="lab1" disabled><input type="text" id="pay1" class="form-control" placeholder="Amount paid" disabled><br>
+						<label> Labour2 : </label><input type="checkbox" id="lab2" disabled><input type="text" id="pay2" class="form-control" placeholder="Amount paid" disabled><br>
 						<!--<label> Labour3 : </label><input type="checkbox" id="lab3"><input type="text" id="pay3" class="form-control"><br>
 						<label> Labour4 : </label><input type="checkbox" id="lab4"><input type="text" id="pay4" class="form-control"><br>
 						<label> Labour5 : </label><input type="checkbox" id="lab5"><input type="text" id="pay5" class="form-control"><br>-->
-						<label>Labours Present</label><label id="contr_labours_present" class="form-control"><br></label>
-						<label>Total Amount</label><input type="text" id="contr_labours_totalPaid" class="form-control"><br>
-						<button id="contr_labours_pay" class="btn btn-primary btn-lg active pull-right">Pay</button> <button id="contr_labours_cancel" class="btn btn-default btn-lg active pull-left">Cancel</button><br>
+						<label>Labours Present</label><input type="text" id="contr_labours_present" class="form-control" disabled></input></br>
+						<label>Total Amount</label><input type="text" id="contr_labours_totalPaid" class="form-control" disabled><br>
+						<!--<button id="contr_labours_pay" class="btn btn-primary btn-lg active pull-right">Pay</button> <button id="contr_labours_cancel" class="btn btn-default btn-lg active pull-left">Cancel</button><br>-->
 					</form>
 				</div>
 				<button id="contr_labours_back" class="btn btn-info btn-lg btn-block">Back</button>
