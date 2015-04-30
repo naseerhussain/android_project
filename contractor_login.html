@@ -140,6 +140,8 @@ p{
                                         $("#contr_pwd").val()
                                    );
                 if(isUser){
+			localStorage.setItem("login",true);
+			localStorage.setItem("who","contractor");
                         CocoonJS.App.forwardAsync("contrLogin('login',0);");
                 }else{
                         alert("Incorrect Username or Password");

@@ -149,9 +149,8 @@ p{
 		CocoonJS.App.forwardAsync("contractorRedirect('siteEngineer',0);")
 	    });
 	$("#back_contr_signout").click(function(){
+		   localStorage.setItem("login",false);
                    CocoonJS.App.forwardAsync("mainMenu(0);");
-		    
-
 	});
  });
 </script>

@@ -140,10 +140,11 @@ p{
 	$("#labours").click(function(){
 		console.log("labours");
 		CocoonJS.App.forwardAsync("siteEngrRedirect('labours',0);");
-	    });
+	});
 	$("#back_siteEngr_signout").click(function(){
-	                CocoonJS.App.forwardAsync("mainMenu(0);");
-             });
+		localStorage.setItem("login",false);
+	        CocoonJS.App.forwardAsync("mainMenu(0);");
+        });
 
  });
 </script>
