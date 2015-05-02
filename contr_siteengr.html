@@ -131,15 +131,33 @@ color:black;
 <script>
  $(document).ready(function(){
 	
-//	var totalAmtForMaterials = totalAmountForAllMaterials();
+	var selected , totalAmt;
 
-//	addSiteEngr(totalAmtForMaterials);
 	addSiteEngr();
 
 	$("#selectSiteEngr").on('change',function(){
                 selected = this.value;
-		calculateAmt(selected);
+		selected = returnUserId(selected);
         });
+	
+	$("#contr_siteEngr_addAmt").keyup(function(){
+		
+		totalAmt = calculateTotal($("#contr_siteEngr_addAmt").val(), selected);
+		var totalMatAmt = totalAmountForAllMaterials(selected);
+		var labAmt = totalLabAmt(selected);
+
+		var amtLeft = totalAmt - ( totalMatAmt + labAmt);
+		amtLeft = toRupees(amtLeft);
+	//	totalAmt = toRupees(totalAmt);
+		$("#contr_siteEngr_totalAmtPaid").val(toRupees(totalAmt)+"/- Rupees");
+		$("#contr_siteEngr_amtLeft").val(amtLeft+"/- Rupees");
+	});
+
+	$("#contr_siteEngr_submit").click(function(){
+		saveAmtPaid(selected, totalAmt);
+		$("input[type='text']").val('');
+		addSiteEngr();
+	});
 
 
 	$("#contr_site_engr_back").click(function(){
@@ -162,7 +180,8 @@ color:black;
 						<input type="text" id="contr_siteEngr_addAmt" class="form-control" placeholder="Add amount"><br>
 						<label>Total Amount Paid:</label>
 						<input type="text" id="contr_siteEngr_totalAmtPaid" class="form-control" placeholder="Total Amount Paid"><br/>
-						<label>Amount left with site Engineer </label> <input type="text" id="contr_siteEngr_amtleft" class="form-control"><br>
+						<label>Amount left with site Engineer </label> 
+						<input type="text" id="contr_siteEngr_amtLeft" class="form-control" placeholder="Total Amount Left with this Site Engineer"><br>
 						
 
 						<button id="contr_siteEngr_submit" class="btn btn-primary pull-right" type="button">Pay</button><br><br>

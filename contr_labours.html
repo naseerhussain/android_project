@@ -152,7 +152,7 @@ height:15px;
 	$("#selectDate").change(function(){
 		var selected = this.value;
 		var lTable = fetchLaboursData(selected, selectedEngr);
-		var size = Object.size(lTable) , totalAmt = 0 , present = 0;
+		var size = Object.key(lTable) , totalAmt = 0 , present = 0;
 
 	        for(var i = 1; i <= size ; i++){
         	        var attendance = lTable[i].attendance;
