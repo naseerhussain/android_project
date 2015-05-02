@@ -124,19 +124,16 @@ p{
  $(document).ready(function(){
 
  	$("#siteEngr_signIn").click(function(){
-	/*	if($("#siteEngr_userId").val() == "siteengineer"){
-			if($("#siteEngr_pwd").val() == "test"){
-				CocoonJS.App.forwardAsync("siteEngrLogin('login',0);");
-			}
-		}*/
+		var whoName = $("#siteEngr_userId").val();
 		var isUser = signIn(
 					"siteengineer",
-					$("#siteEngr_userId").val(),
+					whoName,
 					$("#siteEngr_pwd").val()
 		      		   );
 		if(isUser){
 			localStorage.setItem("login",true);
 			localStorage.setItem("who","siteengineer");
+			localStorage.setItem("whoName",whoName);
 			CocoonJS.App.forwardAsync("siteEngrLogin('login',0);");
 		}else{
 			alert("Incorrect Username or Password");

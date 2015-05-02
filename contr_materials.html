@@ -22,6 +22,8 @@
 	<script src="lib/modernizr-1.5.min.js"></script>
 
 	<script src="lib/jquery-1.8.2.min.js"></script>
+	
+	<script type="text/javascript" src="lib/contr_siteEngrPage.js"></script>
 
 	<script src="lib/fetchMaterialsData.js"></script>
 
@@ -129,9 +131,19 @@ p{
 
 <script>
     $(document).ready(function(){
-	
-	var totalAmt = totalAmountForAllMaterials();
-	$("#contr_totalAmtForMaterials").val(totalAmt +"/-Rs");
+
+	addSiteEngr();	
+
+	$("#selectSiteEngr").on('change',function(){
+                var selected = this.value;
+		selected = returnUserId(selected);
+		var totalAmt = totalAmountForAllMaterials(selected);
+		localStorage.setItem("whoName",selected);
+		$("#contr_totalAmtForMaterials").val(totalAmt +"/-Rs");
+        });
+
+
+	//var totalAmt = totalAmountForAllMaterials();
 
 	$("#siteEngr_material_back").click(function(){
 	    CocoonJS.App.forwardAsync("contrWorkProgressBack(0);");
@@ -178,6 +190,9 @@ p{
 							     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">All</a></li>
   							</ul>
 							</div>-->
+							<label style="color:black">Select site engineer </label>
+                                                	<select class="dropdown block" id="selectSiteEngr" style="color:black;">
+                                                	</select><br>
 							 
 							<span style="color:black">Total Amount for all Materials :</span><br>
                                             		<input type="text" id="contr_totalAmtForMaterials" class="form-control" disabled></input><br>

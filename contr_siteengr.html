@@ -131,18 +131,21 @@ color:black;
 <script>
  $(document).ready(function(){
 	
-	var totalAmtForMaterials = totalAmountForAllMaterials();
+//	var totalAmtForMaterials = totalAmountForAllMaterials();
 
-	addSiteEngr(totalAmtForMaterials);
+//	addSiteEngr(totalAmtForMaterials);
+	addSiteEngr();
+
+	$("#selectSiteEngr").on('change',function(){
+                selected = this.value;
+		calculateAmt(selected);
+        });
+
 
 	$("#contr_site_engr_back").click(function(){
 		CocoonJS.App.forwardAsync("contrSiteEngrBack(0);");
 	});
 
-	//$("#selectSiteEngr").on('change',function(){
-       	 //	alert(this.value);
-	//});
-	
  });
 </script>
 <body>
