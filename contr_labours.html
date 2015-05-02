@@ -17,7 +17,7 @@
 
 	<script type="text/javascript" src="lib/bootstrap.min.js"></script>
 
-	<!--<script type="text/javascript" src="lib/labours.js"></script>-->
+	<script type="text/javascript" src="lib/contr_siteEngrPage.js"></script>
 
 	<script type="text/javascript" src="lib/contr_fetchLabours.js"></script>
 
@@ -129,15 +129,29 @@ height:15px;
 
 <script>
  $(document).ready(function(){
-	$("#contr_labours_back").click(function(){
-		CocoonJS.App.forwardAsync("contrLaboursBack(0);");
-	});
+	var selectedEngr;
 	
-	fillDates();
+	addSiteEngr();
+	
+	$("#selectSiteEngr").on('change',function(){
+                selectedEngr = this.value;
+		selectedEngr = returnUserId(selectedEngr);
+		clearFormData();
+		fillDates(selectedEngr);
+        });
+	
+	function clearFormData(){
+		$("#selectDate option").remove();
+		$("input[type='text']").val("");
+		$("input:checkbox").removeAttr('checked');
+	}
+
+	
+	//fillDates();
 
 	$("#selectDate").change(function(){
 		var selected = this.value;
-		var lTable = fetchLaboursData(selected);
+		var lTable = fetchLaboursData(selected, selectedEngr);
 		var size = Object.size(lTable) , totalAmt = 0 , present = 0;
 
 	        for(var i = 1; i <= size ; i++){
@@ -196,6 +210,11 @@ height:15px;
 		}
 	}
 */	
+
+
+	$("#contr_labours_back").click(function(){
+		CocoonJS.App.forwardAsync("contrLaboursBack(0);");
+	});
 	
  });
 </script>
@@ -206,7 +225,11 @@ height:15px;
 				<h1 class="text-center login-title">Labours</h1>
 				<div class="account-wall">
 					<form class="form-signin">
-						<!--<label> Date : </label><input type="datetime" id="contr_labours_date" class="form-control" disabled><br>-->
+						<!--<label> Date : </label><input type="datetime" id="contr_labours_date" class="form-control" disabled><br>-->	
+						<label>Select site engineer </label>
+                                                <select class="dropdown block" id="selectSiteEngr" style="color:black;">
+                                                </select><br/>
+
 						<label>Select Date </label>
                                                 <select class="dropdown block" id="selectDate" style="color:black;">
                                                 </select><br>

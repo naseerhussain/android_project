@@ -138,6 +138,7 @@ p{
                 var selected = this.value;
 		selected = returnUserId(selected);
 		var totalAmt = totalAmountForAllMaterials(selected);
+		totalAmt = toRupees(totalAmt);
 		localStorage.setItem("whoName",selected);
 		$("#contr_totalAmtForMaterials").val(totalAmt +"/-Rs");
         });
