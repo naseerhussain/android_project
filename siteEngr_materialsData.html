@@ -19,7 +19,7 @@
 
 	<script type="text/javascript" src="lib/saveMaterialsData.js"></script>
 
-	<script type="text/javascript" src="lib/contr_siteEngrPage.js"></script>
+	<script type="text/javascript" src="lib/siteEngrInfo.js"></script>
 
 
 
@@ -124,6 +124,8 @@ p{
 
 <script>
  $(document).ready(function(){
+	var amtRemain = amountRemaining();
+	showRemainAmt(amtRemain);
 	var item = localStorage.getItem("material");
 	$("#materialName").text(item);
 
@@ -132,6 +134,20 @@ p{
 	});
 	
 	//localStorage.removeItem("materialsTable");
+	function showRemainAmt(amt){
+		var amtRemain = toRupees(amt);	
+		$("#siteEngr_mData_amtRemain").val(amtRemain+"/- Rupees");
+	}
+
+	$("#siteEngr_mData_amt").keyup(function(){
+		var entered = $("#siteEngr_mData_amt").val();
+		var remaining = amountRemaining();
+		if(entered > remaining){
+			alert("Not enough money to purchase");
+		}else{
+			showRemainAmt(remaining-entered);
+		}
+	});
 
 	$("#siteEngr_mData_save").click(function(){
 		saveMaterials(
@@ -156,20 +172,23 @@ p{
 				    <form class="form-signin">
 					    <span style="color:black">Quantity:</span><br>
 					    <input type="text" id="siteEngr_mData_qty" class="form-control"></input><br>
-					    <div class="dropdown">   
-					    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-						Kg/Ltr/Load  
-						<span class="caret"></span>
-					    </button>
-					      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-						 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Kg</a>    </li>
-						 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">liter</a>  </li>
-						 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">load</a>   </li>
-					     </ul>
-					 </div>
-					     <br>
-					     <span style="color:black">Amount</span>
-					     <input type="text" id="siteEngr_mData_amt" class="form-control"></input><br>
+					    <!--<div class="dropdown">   
+					    	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+							Kg/Ltr/Load  
+							<span class="caret"></span>
+					    	</button>
+					      	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+						 	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Kg</a>    </li>
+						 	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">liter</a>  </li>
+						 	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">load</a>   </li>
+					     	</ul>
+					     </div>-->
+					   <span style="color:black">Amount</span>
+					   <input type="text" id="siteEngr_mData_amt" class="form-control"></input><br>
+
+					   <span style="color:black">Amount Remaining</span>
+                                           <input type="text" id="siteEngr_mData_amtRemain" class="form-control" disabled></input><br>
+
 					   <button id="siteEngr_mData_save" class="btn btn-lg btn-primary pull-right">Save</button>
 					   <button id="siteEngr_mData_cancel" class="btn btn-lg btn-default pull-left">Cancel</button><br/>
 

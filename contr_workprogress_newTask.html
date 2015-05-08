@@ -17,6 +17,10 @@
 
 	<script type="text/javascript" src="lib/bootstrap.min.js"></script>
 
+	<script type="text/javascript" src="lib/contr_siteEngrPage.js"></script>
+
+	<script type="text/javascript" src="lib/contr_newTask.js"></script>
+
 
 
 <title>New App</title>
@@ -116,6 +120,24 @@ label {
 
 <script>
  $(document).ready(function(){
+	var selectedEngr;
+	addSiteEngr();
+
+
+	$("#selectSiteEngr").on('change',function(){
+                selectedEngr = this.value;
+                selectedEngr = returnUserId(selectedEngr);
+        });
+
+	$("#contr_newTask_assign").click(function(){
+		saveTask(
+			$("#contr_workProgress_newTask_task").val(),
+			$("#contr_workProgress_newTask_timeSlot").val(),
+			selectedEngr
+		);
+	});
+
+
 	$("#contr_work_progress_newTask_back").click(function(){
 		CocoonJS.App.forwardAsync("contrWorkProgressNewTaskBack(0);");
 	});
@@ -129,17 +151,11 @@ label {
 				<div class="account-wall">
 					<form class="form-signin">
 						<label>Task </label><br><textarea align="top" class="form-control" id="contr_workProgress_newTask_task"></textarea><br>
-						<label>Time Slot</label><br><input align="middle" type="text" class="form-control" id="contr_siteEngr_newTask_timeSlot">Days<br>
-						<div class="dropdown">
-							<label>Assign to</label><button class="btn btn-default dropdown-toggle" type="button" id="contr_siteEngr_newTask_selectEngr" data-toggle="dropdown" aria-expanded="true">
-							Select
-							<span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu" role="menu" aria-labelledby="contr_siteEngr_newTask_selectEngr">
-								<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Name1</a></li>
-								<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Name2</a></li>
-							</ul>
-						</div>
+						<label>Time Slot</label><br><input align="middle" type="text" class="form-control" id="contr_workProgress_newTask_timeSlot">Days<br>
+						<label>Assign To </label>
+                                                <select class="dropdown block" id="selectSiteEngr" style="color:black;">
+                                                </select><br/>
+						<button id="contr_newTask_assign" class="btn btn-primary btn-lg active pull-right">Assign</button><br>
 					</form>
 				</div>
 				<button id="contr_work_progress_newTask_back" class="btn btn-info btn-lg btn-block"> Back </button>

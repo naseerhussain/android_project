@@ -23,7 +23,7 @@
 
 	<script src="lib/jquery-1.8.2.min.js"></script>
 
-	<!-- <script src="lib/scripts.js"></script>-->
+	<script src="lib/siteEngrInfo.js"></script>
 
 
 
@@ -129,6 +129,8 @@ p{
 
 <script>
     $(document).ready(function(){
+	var amt = amountRemaining();
+	$("#seAmt").val(toRupees(amt)+"/- Rupees");
 
 	$("#siteEngr_material_back").click(function(){
 	    CocoonJS.App.forwardAsync("welcomeSiteEngr(0);");
@@ -165,7 +167,7 @@ p{
 				<h1 class="text-center login-title">Materials</h1>
 				<div class="account-wall">
 					<form class="form-signin">
-						<div class="dropdown">
+						<!--<div class="dropdown">
   							<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
 							    Date
 							    <span class="caret"></span>
@@ -174,20 +176,22 @@ p{
 							     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Today</a></li>
 							     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">All</a></li>
   							</ul>
-							</div> 
-							<div class="dashboard clearfix">
-							    <ul class="tiles">
-								<div class="col1 clearfix">
-								    <li id="tile_cement" class="tile tile-big tile-1 slideTextUp">
-									<figure>																    <img src="images/bag_cement.png" />
+						</div>--> 
+						<span style="color:black">Amount Remaining with me : </span>
+						<input type="text" class="form-control" id="seAmt" disabled/>
+						<div class="dashboard clearfix">
+						    <ul class="tiles">
+							<div class="col1 clearfix">
+							    <li id="tile_cement" class="tile tile-big tile-1 slideTextUp">
+								<figure>
+									<img src="images/bag_cement.png" />
 									<figcaption class="tile-caption caption-down">Cement</figcaption>
-									</figure>
-									</li><br>
-									 <li id="tile_rods" class="tile tile-big  tile-2 slideTextUp">
-									    <figure>																	    <img src="images/rods.png" />													<figcaption class="tile-caption caption-down">Rods</figcaption>
-									    </figure>
-									</li>
-								    </div>
+								</figure>
+							    </li><br>
+							    <li id="tile_rods" class="tile tile-big  tile-2 slideTextUp">
+								<figure>																	    		<img src="images/rods.png" />																<figcaption class="tile-caption caption-down">Rods</figcaption>										     </figure>
+							     </li>
+							</div>
 							    
 							             <div class="col2 clearfix">														    <li id="tile_bricks" class="tile tile-big tile-5 slideTextUp">
 									    <figure>																	 <img src="images/bricks.png" />												     <figcaption class="tile-caption caption-down">Bricks</figcaption>

@@ -17,6 +17,10 @@
 
 	<script type="text/javascript" src="lib/bootstrap.min.js"></script>
 
+	<script type="text/javascript" src="lib/contr_siteEngrPage.js"></script>
+	
+	<script type="text/javascript" src="lib/contr_workProgress.js"></script>
+
 
 
 <title>New App</title>
@@ -111,11 +115,42 @@ body {
 label {
  color:black;
 }
+input[type="text"]{
+color:black;
+}
 </style>
 
 
 <script>
  $(document).ready(function(){
+	var selectedEngr;
+        
+        addSiteEngr();
+        
+        $("#selectSiteEngr").on('change',function(){
+                selectedEngr = this.value;
+                selectedEngr = returnUserId(selectedEngr);
+		clearFormData();
+		var data = getWorkProgress(selectedEngr);
+		if(Object.size(data) == 0){
+			$("#contr_wProgress_task").val("No task assigned to this engineer");
+		}else{
+			$("#contr_wProgress_task").val(data[1].task);
+			$("#contr_wProgress_days").val(data[1].daysLeft);
+			$("#contr_wProgress_workDone").val(data[1].workDone+"%");
+			$("#contr_wProgress_workLeft").val(data[1].totalWorkLeft+"%");		
+		}
+        });
+
+	 function clearFormData(){
+                $("#selectDate option").remove();
+                $("input[type='text']").val("");
+        }
+
+
+
+
+
 	$("#contr_work_progress_back").click(function(){
 		CocoonJS.App.forwardAsync("contrWorkProgressBack(0);");
 	});
@@ -131,12 +166,20 @@ label {
 				<h1 class="text-center login-title">Work Progress</h1>
 				<div class="account-wall">
 					<form class="form-signin">
-						<button style="color:black" id="contr_workProgress_newTask">New Task</button><br><br><br>
-						<label>Task in Progress</label><br>
-						<label>Task </label><br><textarea align="top" class="form-control" id="contr_wProgress_tDesc"></textarea><br>
-						<label>Days left</label><br><input align="middle" type="text" class="form-control" id="contr_wProgress_daysLeft"><br>
-						<label>Todays work</label><br><input type="text" class="form-control" id="contr_wProgress_todayWork"><br>
-						<label>Work done</label><br><input type="text" class="form-control" id="contr_wProgress_workDone"><br> 		
+						<button style="color:black" id="contr_workProgress_newTask" class="btn btn-primary pull-right">New Task</button><br><br>
+						<span style="color:black">Select site engineer </span>
+                                                <select class="dropdown block" id="selectSiteEngr" style="color:black;">
+                                                </select><br/><br>
+
+						<span style="color:black">Task</span>
+	                                        <input type="text" id="contr_wProgress_task" class="form-control" disabled></input><br><br>
+        	                                <span style="color:black">Days left</span>
+                                            	<input type="text" id="contr_wProgress_days" class="input-small pull-right" disabled></input><br><br>
+                                            	<span style="color:black">Work Done Today</span>
+                                            	<input type="text" id="contr_wProgress_workDone" class="input-small pull-right" placeholder="In Percentage" disabled></input><br><br>
+                                            	<span style="color:black">Total Work Left</span>
+                                            	<input type="text" id="contr_wProgress_workLeft" class="input-small pull-right" disabled></input><br>
+
 					</form>
 				</div>
 				<button id="contr_work_progress_back" class="btn btn-info btn-lg btn-block"> Back </button>
