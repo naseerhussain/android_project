@@ -136,7 +136,7 @@ p{
 			localStorage.setItem("whoName",whoName);
 			CocoonJS.App.forwardAsync("siteEngrLogin('login',0);");
 		}else{
-			alert("Incorrect Username or Password");
+			document.getElementById("error_msg").innerHTML="? Enter correct Username and Password";
 		}
  	});
 	
@@ -162,8 +162,9 @@ p{
 					<form class="form-signin">
 						<input type="text" placeholder="User Id" id="siteEngr_userId" class="form-control"></input><br/>
 						<input type="password" placeholder="Password" id="siteEngr_pwd" class="form-control"></input><br/>
-						<button id="siteEngr_signIn" class="btn btn-lg btn-primary btn-block">Sign In</button><br/>
-						<span style="color:black">Not having Accout ? <a id="siteEngr_signUp"> Sign Up</a>
+						<p id="error_msg"></p>
+						<button id="siteEngr_signIn" class="btn btn-lg btn-primary btn-block" class="close" data-dismiss="alert">Sign In</button><br/>
+						<span style="color:black">Not having Accout ? <a id="siteEngr_signUp"> Sign Up</a> 
 
 					</form>
 				</div>
