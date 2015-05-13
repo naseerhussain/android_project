@@ -139,8 +139,9 @@ p{
 		var uName = $("#contr_userId").val();
 		var pwd = $("#contr_pwd").val();
 
-		if(uName == " " && pwd == " "){
-			
+		if(uName == "" && pwd == ""){
+			$("#error_msg").html("Enter username and password");	
+			return;
 		}
 
 		var isUser = signIn(
@@ -153,7 +154,7 @@ p{
 			localStorage.setItem("who","contractor");
                         CocoonJS.App.forwardAsync("contrLogin('login',0);");
                 }else{
-                        document.getElementById('error_msg').innerHTML="?Entered username or password is incorrect";
+                        document.getElementById('error_msg').innerHTML="Entered username or password is incorrect";
                 }
 
  	});
@@ -178,7 +179,7 @@ p{
 					<form class="form-signin">
 						<input type="text" placeholder="User Id" id="contr_userId" class="form-control"><br/>
 						<input type="password" placeholder="Password" id="contr_pwd" class="form-control"><br/>
-						<div id="error_msg"></div>
+						<div id="error_msg"></div><br>
 						<button id="contr_signIn" class="btn btn-lg btn-primary btn-block" class="close" data-dismiss="alert" aria-label="Close">Sign In</button><br/>
 						<span style="color:black">Not having Accout ? <a id="contr_signUp"> Sign Up</a>
 						

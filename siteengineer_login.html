@@ -125,10 +125,18 @@ p{
 
  	$("#siteEngr_signIn").click(function(){
 		var whoName = $("#siteEngr_userId").val();
+                var pwd = $("#siteEngr_pwd").val();
+
+                if(whoName == "" && pwd == ""){
+                        $("#error_msg").html("Enter username and password");    
+                        return;
+                }
+
+
 		var isUser = signIn(
 					"siteengineer",
 					whoName,
-					$("#siteEngr_pwd").val()
+					pwd
 		      		   );
 		if(isUser){
 			localStorage.setItem("login",true);
