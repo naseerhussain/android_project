@@ -126,12 +126,14 @@ p{
 	//localStorage.removeItem("siteengineer");
 
 	$("#siteEngr_save").click(function(){
+		var error_msg=document.getElementById("error_msg");
 		var correctUser = signup(
 					"siteengineer",
 					$('#siteEngr_name').val() , 
 					$('#siteEngr_userId').val(), 
 					$('#siteEngr_pwd').val(), 
-					$('#siteEngr_confpwd').val(), 
+					$('#siteEngr_confpwd').val(),
+					error_msg, 
 					$('#siteEngr_cntrId').val()
 					);
 		if(correctUser){
@@ -157,7 +159,8 @@ p{
 						<input type="password" placeholder="Password" id="siteEngr_pwd" class="form-control"></input><br/>
 						<input type="password" placeholder="Confirm Password" id="siteEngr_confpwd" class="form-control"></input><br/>
 						<input type="text" placeholder="Contractor Id" id="siteEngr_cntrId" class="form-control"></input><br/>
-						<button id="siteEngr_save" class="btn btn-lg  pull-right btn-primary">Confirm</button>
+						<p id="error_msg"></p>
+						<button id="siteEngr_save" class="btn btn-lg  pull-right btn-primary" class="close" data-dismiss="alert">Confirm</button>
 						<button id="siteEngr_cancel" class="btn btn-lg " style="color:black">Cancel</button>
 					</form>
 				    </div>
