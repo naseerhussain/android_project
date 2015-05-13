@@ -119,6 +119,9 @@ body {
 p{
 	color:red;
 }
+#error_msg{
+	color:red;
+}
 
 </style>
 
@@ -144,7 +147,7 @@ p{
 			localStorage.setItem("who","contractor");
                         CocoonJS.App.forwardAsync("contrLogin('login',0);");
                 }else{
-                        alert("Incorrect Username or Password");
+                        document.getElementById('error_msg').innerHTML="?Entered username or password is incorrect";
                 }
 
  	});
@@ -169,7 +172,8 @@ p{
 					<form class="form-signin">
 						<input type="text" placeholder="User Id" id="contr_userId" class="form-control"><br/>
 						<input type="password" placeholder="Password" id="contr_pwd" class="form-control"><br/>
-						<button id="contr_signIn" class="btn btn-lg btn-primary btn-block" >Sign In</button><br/>
+						<div id="error_msg"></div>
+						<button id="contr_signIn" class="btn btn-lg btn-primary btn-block" class="close" data-dismiss="alert" aria-label="Close">Sign In</button><br/>
 						<span style="color:black">Not having Accout ? <a id="contr_signUp"> Sign Up</a>
 						
 					</form>
