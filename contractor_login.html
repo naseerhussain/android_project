@@ -133,6 +133,12 @@ p{
 				CocoonJS.App.forwardAsync("contrLogin('login',0);");
 			}
 		}*/
+		var uName = $("#contr_userId").val();
+		var pwd = $("#contr_pwd").val();
+
+		if(uName == " " && pwd == " "){
+			
+		}
 
 		var isUser = signIn(
                                         "contractor",
