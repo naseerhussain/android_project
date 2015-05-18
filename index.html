@@ -35,18 +35,16 @@
 	             console.error("Could not load the HTML file in the webview");
 
             });
-	    var loginVariable = localStorage.getItem("login") || false;
-	    loginVariable = (loginVariable == "true") ? true : false;
-	    if(loginVariable){
-  		var who = localStorage.getItem("who");
+	    
+	    CocoonJS.App.loadInTheWebView("webview_index.html");
+
+	    keepLoggedIn = function(who){
+
 		if(who =="siteengineer"){
 			CocoonJS.App.loadInTheWebView("siteEngineer.html");
 		}else{
 			CocoonJS.App.loadInTheWebView("contractor.html");
 		}
-
-	    }else{
-	    	CocoonJS.App.loadInTheWebView("webview_index.html");
 	    }
 
 	    mainMenu = function(){
